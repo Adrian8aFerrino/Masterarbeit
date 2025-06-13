@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+    <text y=%22.9em%22 font-size=%2290%22>🐸</text></svg>">
+    <meta name="description" content="Queuing Model" />
+    <meta name="author" content="Adrián Ochoa Ferriño" />
+    <title>Project: Simulation of a Queuing Model in a school cafeteria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="homepage_neu.html#project-showcase">Projekt-Schaufenster</a></li>
+        <li><a class="translation" href="project_zeta_en.html">English Version</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section id="homepage">
+  <h1>Simulation und Analyse der Leistung der Universitätskantine:</h1>
+  <h2>Warteschlangenmodell für den Durchfluss durch die Universitätskantine, die Identifizierung von Engpässen und der
+      Vorschlag von Lösungen zur Optimierung der Durchlaufzeiten.</h2>
+    <div class="project-container">
+        <h3>Universitätskantinen spielen eine zentrale Rolle bei der Unterstützung von Studierenden, indem sie
+            zuverlässige Verpflegung und einen Ort für soziale Interaktion bieten. Allerdings führt die Hektik in
+            diesen Kantinen oft zu Herausforderungen bei der effizienten Steuerung des Kundenstroms, was zu langen
+            Warteschlangen, verlängerten Servicezeiten und insgesamt zu einer suboptimalen Erfahrung führt.
+            <br><br>
+            Da ich die Notwendigkeit erkannte, diese Probleme anzugehen, beteiligte ich mich als Masterstudent an einem
+            Team, das sich mit der Entwicklung von Warteschlangenmodellen zur Steigerung der Effizienz von
+            Universitätskantinen befasste.
+            <br><br>
+            Unter der Aufsicht der Fakultät hatten wir die Aufgabe, ein Warteschlangenmodell zu simulieren, um die
+            Betriebsdynamik unserer Universitätskantine nachzubilden. Dieses Vorhaben sollte uns helfen, den gesamten
+            Warteschlangenprozess besser zu verstehen – vom Moment der Ankunft eines Studenten am Kantinen-Schalter bis
+            zum Abschluss seiner Zahlung.
+        </h3>
+
+        <h3>Die Ziele dieses Simulationsprojekts waren zweierlei: erstens, tiefere Einblicke in die komplexen
+            Interaktionen zwischen Kunden, Dienstleistern und verfügbaren Ressourcen zu gewinnen; und zweitens,
+            potenzielle Engpässe innerhalb des bestehenden Systems zu identifizieren.
+            <br><br>
+            Dieses Projekt untersucht die verwendeten Methoden, die Bedeutung der Warteschlangentheorie – einem
+            etablierten Teilgebiet der Operations Research – und ihre Anwendung im Kontext von Universitätsmensen. Wir
+            diskutieren auch die Herausforderungen, die während des Simulationsprozesses auftraten, die wichtigsten
+            Ergebnisse der Analyse und die vorgeschlagenen Lösungen zur Beseitigung der identifizierten Engpässe.
+            <br><br>
+            Durch die Veröffentlichung dieser Forschungsergebnisse möchten wir eine breitere Diskussion über die
+            praktischen Anwendungen von Warteschlangenmodellen in realen Szenarien anregen und effektive Lösungen zur
+            Steigerung der Kapazität, Verkürzung der Servicezeiten und letztendlich zur Optimierung der gesamten
+            Kundenvorlaufzeit vorstellen.
+        </h3>
+
+        <h3><b>SCHRITT 1: Verständnis der Industrie</b><br><br>
+            <b>I. Warteschlangentheorie:</b><br>
+            Das Universitätskantinenprojekt weist mehrere Gemeinsamkeiten mit der Warteschlangentheorie auf, einem
+            mathematischen Rahmenwerk, das zur Modellierung von warteschlangenbasierten Dienstleistungsumgebungen wie
+            Convenience-Stores, Restaurants oder Notfalldiensten sowie in Geschäftsbereichen wie Telekommunikation,
+            Logistik und Bankwesen verwendet wird.
+            <br><br>
+            Die Warteschlangentheorie hilft bei der Optimierung der Ressourcenzuweisung und der Verbesserung des
+            Kundenservice, indem sie durch die Berechnung des Auslastungsfaktors für jede Station Engpässe
+            identifiziert.
+            <br><br>
+            <b>II. Datengenerierung:</b><br>
+            Ein weiterer wichtiger Bestandteil dieses Projekts ist die Generierung von Daten für Simulationsmodelle.
+            Die Datengenerierung ist entscheidend für die Definition von Wahrscheinlichkeitsverteilungen für
+            Eingabevariablen wie Ankunftsraten und Servicezeiten. Mithilfe der Monte-Carlo-Simulation haben wir große
+            Mengen von Zufallsstichproben generiert, um verschiedene Szenarien innerhalb des Warteschlangensystems zu
+            simulieren.
+            <br><br>
+            <b>Key Performance Indicators (KPI)</b> konzentrierten sich auf den betrieblichen Mehrwert für die Mensa,
+            wobei insbesondere die Kapazität, die Durchlaufzeiten und der Auslastungsfaktor jeder Servicestation im
+            Vordergrund standen.
+        </h3>
+
+        <h3><b>SCHRITT 2: Verständnis der Daten</b><br><br>
+            Wie bei jedem Warteschlangenmodell kommen die Kunden nach einem bestimmten Ankunftsprozess zum System, der
+            in der Regel anhand von Poisson- oder Exponentialverteilungen modelliert wird. Bei der Ankunft wird der
+            Kunde, sofern ein Server verfügbar ist, sofort bedient und begibt sich dann zur nächsten Station, um die
+            Zahlung abzuschließen.
+            <br><br>
+            Um das Warteschlangensystem der Kantine genau darzustellen, haben wir die folgenden Kundenzustände
+            berücksichtigt: Ankunft in der Kantine, Interaktion mit dem Kantinenpersonal, um Essen zu bestellen und zu
+            erhalten (erste Servicestation), und Bezahlung an der Kasse (zweite Servicestation).
+            <br><br>
+            Um dieses System zu simulieren, haben wir eine Markov-Kette angewendet – ein stochastisches Modell, das aus
+            definierten Zuständen und Übergangswahrscheinlichkeiten zwischen diesen besteht.
+            Markov-Warteschlangenprozesse ermöglichen die Simulation und Analyse des Systemverhaltens unter
+            verschiedenen Bedingungen und funktionieren ohne Speicher (zukünftige Zustände werden nicht von vergangenen
+            Ereignissen beeinflusst).
+            <br><br>
+            In der Warteschlangentheorie wird die Kendall-Notation verwendet, um Warteschlangenknoten zu beschreiben
+            und zu klassifizieren. In unserem Fall wird das System als <b>M/M/1/1/∞/∞/FIFO</b> dargestellt, was einen
+            Markovschen Ankunftsprozess und Servicezeiten, einen Server pro Station, unbegrenzte
+            Warteschlangenkapazität und eine First-in-First-out-Servicedisziplin bezeichnet.
+        </h3>
+
+        <h3><b>SCHRITT 3: Aufbereitung der Daten</b><br><br>
+            Auf Grundlage der Erkenntnisse aus der Datenanalysephase haben wir die wichtigsten Elemente des
+            Warteschlangensystems identifiziert. Diese wurden manuell durch direkte Besuche in der
+            Universitätscafeteria erfasst, bei denen wir wichtige Details wie Spitzenzeiten, zu denen die
+            Kundennachfrage am höchsten war, beobachtet und aufgezeichnet haben.
+            <br><br>
+            Nachdem ausreichend Daten zu Ankunftsraten und Servicezeiten gesammelt worden waren, haben wir
+            Chi-Quadrat-Tests durchgeführt, um zu bewerten, wie gut die beobachteten Daten einer Poisson-Verteilung
+            entsprechen. Mit zunehmendem Umfang der gesammelten Daten stieg auch der p-Wert des Chi-Quadrat-Tests. Nach
+            der Erfassung von etwa 150 Datenpunkten haben wir mit dem Prozess der <b>Datengenerierung</b> fortgefahren.
+            <br><br>
+            <b>HINWEIS:</b> Um Konsistenz zu gewährleisten und Beobachterverzerrungen zu minimieren, wurden die Daten
+            über mehrere Tage und Zeitfenster hinweg gesammelt, wobei Wochenenden ausgeschlossen wurden.
+        </h3>
+
+        <img src="bilder/project_zeta1.png" alt="Project_Z1">
+
+        <section class="sample_code">
+            <b># Python CODE: Datengenerierung</b>
+            <br>def augment_poisson(data_augmented, sim_iteration, label):
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.figure(figsize=(10, 5))
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.subplot(1, 2, 1)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_augmented[1].plot(kind="hist", alpha=0.5, label="Order", color="green", bins=100)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.xlabel(f"{label} (People per minute)")
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.ylabel("Frequency")
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.title("Population Distribution Original")
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mean = data_augmented[1].mean()
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;samples = np.random.poisson(mean, size=sim_iteration)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_data = pd.DataFrame({1: samples})
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_augmented = pd.concat([data_augmented, new_data], ignore_index=True)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size_two = data_augmented.shape[0]
+            <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.subplot(1, 2, 2)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data_augmented[1].plot(kind="hist", alpha=0.5, label="Order", color="orange", bins=100)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.xlabel(f"{label} (People per minute)")
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.ylabel("Frequency")
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.title("Population Distribution Generated")
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.tight_layout()
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plt.show()
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return data_augmented[1], size_two
+        </section>
+
+        <h3>Nach Abschluss der Datenerfassung haben wir eine Monte-Carlo-Simulation durchgeführt, um auf der Grundlage
+            der beobachteten Datensätze zusätzliche Datenpunkte zu generieren. Durch die Analyse der Verteilung der
+            Ankunftsraten und Servicezeiten habe ich zwei separate Funktionen zur Datengenerierung entwickelt – eine
+            für Poisson-verteilte Ankunftsraten und eine für exponentiell verteilte Servicezeiten. Diese Funktionen
+            generierten bis zu 700 neue Datenpunkte, die die Eigenschaften der ursprünglichen Datenverteilungen
+            nachbildeten.
+            <br><br>
+            Durch die Definition von Wahrscheinlichkeitsverteilungen für Eingabevariablen wie Ankunftsraten und
+            Servicezeiten und die Anwendung der Monte-Carlo-Simulation konnten wir eine Vielzahl von Szenarien
+            simulieren. Diese Szenarien ermöglichten die Schätzung wichtiger Leistungsindikatoren, darunter
+            durchschnittliche Wartezeit, Warteschlangenlänge, Systemauslastung und die Wahrscheinlichkeit von
+            Verzögerungen.
+            <br><br>
+            Ein Vergleich zwischen den ursprünglichen Daten und den generierten Daten – basierend auf Mittelwerten und
+            Verteilungsmustern – bestätigte, dass die generierten Daten die statistischen Eigenschaften des
+            ursprünglichen Datensatzes beibehielten.
+        </h3>
+
+        <img src="bilder/project_zeta2.png" alt="Project_Z2">
+
+        <h3><b>SCHRITT 4: Datenexploration und -visualisierung</b><br><br>
+            Die Untersuchung der Datensätze zu Ankunftsraten und Servicezeiten lieferte erste Einblicke in das
+            Verhalten und die Leistung des Warteschlangensystems. In Warteschlangensystemen werden wichtige
+            Leistungskennzahlen wie Wartezeiten, Auslastungsfaktor und Durchlaufzeiten durch Datenauswertung abgeleitet
+            und sind für die Bewertung der Systemeffizienz von zentraler Bedeutung. Diese Leistungskennzahlen sind auch
+            nützlich für das Benchmarking verschiedener Personalszenarien oder Servicelayouts, die später getestet
+            werden könnten.
+            <br><br>
+            Mithilfe von Histogrammen und Boxplots konnten wir Schiefe, potenzielle Ausreißer und Clustering-Muster
+            innerhalb der Datensätze beobachten.
+        </h3>
+
+        <img src="bilder/project_zeta3.png" alt="Project_Z3">
+
+        <h3><b>Wartezeit:</b> Diese Kennzahl bezieht sich auf die Zeit, die ein Kunde in der Warteschlange verbringt,
+            bevor er bedient wird. Sie wird berechnet, indem die Differenz zwischen der Ankunftszeit und dem Beginn der
+            Bedienung gemessen wird.
+            <br><br>
+            <b>Durchlaufzeit:</b> Die Durchlaufzeit erfasst die Gesamtzeit, die ein Kunde im System verbringt, von der
+            Ankunft bis zum Abschluss der Bedienung. Sie umfasst sowohl die Wartezeit als auch die Bedienungszeit und
+            wird durch Verfolgung der gesamten Customer Journey berechnet.
+            <br><br>
+            <b>Auslastungsfaktor:</b> Der Auslastungsfaktor gibt den Prozentsatz der Zeit an, in der Servicestationen
+            (Server) Kunden aktiv bedienen, im Verhältnis zu ihrer Gesamtverfügbarkeit. Er ist ein wichtiger Indikator
+            für die Kapazität und Effizienz des Systems.
+        </h3>
+
+        <h3><b>SCHRITT 5: Entwicklung von Merkmalen</b><br><br>
+            Um diese Leistungskennzahlen in einem Simulationsmodell genau zu berechnen, müssen präzise Zeitstempel für
+            die Ankunft der Kunden, den Beginn der Dienstleistung, das Ende der Dienstleistung und die Abreise erfasst
+            werden. In unserem Simulationsmodell haben wir die folgenden Schlüsselelemente definiert:<br>-->
+            'Kundennummer'<br>-->'Ankunftsrate'<br>--> 'Wartezeit vor der Kantine'<br>--> 'Servicezeit Kantine'<br>-->
+            'Wartezeit vor der Kasse'<br>--> 'Servicezeit Kasse'<br>--> 'Durchlaufzeit'
+            <br><br>
+            Durch die Verfolgung dieser Werte und die Anwendung geeigneter Algorithmen konnten wir die Wartezeiten,
+            Durchlaufzeiten und Auslastungsfaktoren berechnen, die für die Bewertung der Systemleistung und die
+            Ermittlung von Möglichkeiten zur Betriebsverbesserung erforderlich sind. Der Zweck dieser Funktionen
+            besteht nicht nur darin, die Kundenbewegungen durch das System zu verfolgen, sondern auch die
+            Rückverfolgbarkeit der Simulationsergebnisse zu gewährleisten.
+        </h3>
+
+        <section class="sample_code">
+            <b># Python CODE: Berechnung des Nutzungsfaktors anhand des Durchschnittswerts des Datensatzes</b>
+            <br>avg_arrival_rate = np.mean(new_arrival) / 60
+            <br>avg_service_time_uno = new_order.mean()
+            <br>avg_service_time_dos = new_cashier.mean()
+            <br><br>capacity_canteen = 1
+            <br>capacity_cashier = 1
+            <br><br>utilization_factor_canteen = (avg_arrival_rate * avg_service_time_uno) / capacity_order
+            <br>utilization_factor_cashier = (avg_arrival_rate * avg_service_time_dos) / capacity_cashier
+            <br><br>client_data = pd.DataFrame(columns=['Client Number', 'Arrival Rate', 'Waiting time before Canteen',
+            'Service Time Canteen', "Waiting time before Cashier", "Service Time Cashier", "Lead Time"])
+            <br><br>client_data["Waiting time before Canteen"] = (client_data["Waiting time before Canteen"] -
+            client_data["Service Time Canteen"]).abs()
+            <br><br>client_data["Waiting time before Cashier"] = (client_data["Waiting time before Cashier"] -
+            client_data["Service Time Cashier"]).abs()
+            <br><br>client_data["Lead Time"] = client_data[['Waiting time before Canteen', 'Service Time Canteen',
+            "Waiting time before Cashier", "Service Time Cashier", "Lead Time"]].sum(axis=1)
+        </section>
+
+        <h3><b>SCHRITT 6: Aufbau von Modellen</b><br><br>
+            Für diese Simulation des Warteschlangensystems haben wir Python verwendet und die SimPy-Bibliothek
+            integriert, ein Paket für diskrete Ereignissimulationen (DES), das zur Modellierung des dynamischen
+            Prozessverhaltens und des Ressourcenmanagements entwickelt wurde. Mit SimPy konnten wir die
+            Kantinenumgebung nachbilden und simulieren, wie Ressourcen (Kantine und Kassen) mit ankommenden Kunden
+            interagieren.
+            <br><br>
+            Der Python-Code repliziert das Warteschlangenverhalten, indem er zufällig Werte aus den drei generierten
+            Datensätzen auswählt, die die inhärente Variabilität im täglichen Kantinenbetrieb widerspiegeln. Der
+            zufällige Auswahlprozess stellt sicher, dass jeder Simulationslauf eine andere Variation aufweist, was eine
+            bessere Belastungsprüfung des Systems ermöglicht.
+            <br><br>
+            Im Ankunftsprozess erhält die erste Station (Canteen) die Ankunftsintervalle von der Funktion
+            „arrival_process_stations“ und verarbeitet die Servicedauer über die Funktion ‚service_process_canteen‘.
+            Sobald die Anfrage eines Kunden abgeschlossen ist, wird sie an die zweite Station (CASHIER) weitergeleitet,
+            die mit der Funktion „service_process_cashier“ simuliert wird.
+        </h3>
+
+        <section class="sample_code">
+            <b># Python CODE: Erstellen des Warteschlangenmodells</b>
+            <br>env = simpy.Environment()
+            <br><br>server_number_uno = simpy.Resource(env, capacity=capacity_order)
+            <br>server_number_dos = simpy.Resource(env, capacity=capacity_cashier)
+            <br><br>station_canteen = simpy.Store(env)
+            <br>queue_between = simpy.Store(env)
+            <br>station_cashier = simpy.Store(env)
+            <br><br>env.process(arrival_process_stations(env, client_number=0, client_data=client_data))
+            <br>env.run(until=(3600 * work_days))
+            <br><br><b># Was ist simpy.Environment()?</b>
+            <br>Innerhalb der SimPy-Bibliothek repräsentiert die Klasse „Environment“ die Umgebung, in der Ereignisse
+            auftreten und geplant werden, wobei sie wichtige Funktionen umfasst, die ausschließlich in der
+            SimPy-Bibliothek zu finden sind, wie Simulationszeit, Ereignisplanung und -bearbeitung, Prozessausführung
+            usw.
+            <br><br><b># Was ist simpy.Resource()?</b>
+            <br>Innerhalb der SimPy-Bibliothek repräsentiert die Klasse „Resource“ die Kapazität einer Station, d. h.
+            wie viele Prozesse gleichzeitig ausgeführt werden können. Im Python-Code generieren Kunden
+            <b>request()</b>, um Zugriff auf die Ressource zu erhalten, und werden dann nach Abschluss der Aufgabe mit
+            <b>release()</b> freigegeben.
+            <br><br><b># Was ist simpy.Store()?</b>
+            <br>Innerhalb der SimPy-Bibliothek repräsentiert die Klasse „Store“ die Warteschlangen, Puffer oder
+            Haltebereiche, in denen Simulationsprozesse Ereignisse ablegen, wenn die Klasse <b>Resource()</b> belegt
+            ist. Die Klasse <b>Resource()</b> ruft Ereignisse mithilfe der Funktion <b>get()</b> ab.
+        </section>
+
+        <h3>Ankunftsereignisse werden durch Stichproben von zufälligen Ankunftsratenwerten (gemessen in Ankunften pro
+            Minute) generiert, die in Intervallzeiten zwischen den Ankunftszeiten umgewandelt werden, um zu bestimmen,
+            wie lange das System wartet, bevor es den nächsten Kunden bedient.
+            <br><br>
+            Jeder neue Kunde erhält eine Kundennummer und wird mit der Methode <b>put()</b> zur Warteschlange der
+            Kantine (station_order) hinzugefügt. Die Kantinenstation verarbeitet Kunden über die Methode <b>get()</b>
+            und verfolgt dabei die Ankunftszeit des Kunden, die Wartezeit vor der Bedienung und die Verweildauer in der
+            Servicestation.
+        </h3>
+
+        <section class="sample_code">
+            <b># Python CODE: Ankünfte</b>
+            <br>def arrival_process_stations(env, client_number, client_data):
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while True:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrival_select = np.random.choice(new_arrival.values)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client_data.loc[client_number, 'Arrival Rate'] = arrival_select
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if arrival_select != 0:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interarrival_time = 60 / arrival_select
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interarrival_time = 60
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield env.timeout(interarrival_time)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client_number += 1
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;station_order.put((env.now, client_number))
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env.process(service_process_order(env, client_data))
+        </section>
+
+        <section class="sample_code">
+            <b># Python CODE: Dienst</b>
+            <br>def service_process_cashier(env, client_data):
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while True:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with server_number_dos.request() as request:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield request
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;arrival_time, client_number = yield station_cashier.get()
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service_time_dos = np.random.choice(new_cashier.values)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yield env.timeout(service_time_dos)
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client_data.loc[client_number, "Service Time Cashier"] = service_time_dos
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client_data.loc[client_number, 'Waiting time before Cashier'] = env.now - arrival_time
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;env.process(service_process_cashier(env, client_data))
+        </section>
+
+        <h3>Die Kassierstation funktioniert ähnlich: Sie ruft den nächsten Kunden aus der Zwischenwarteschlange
+            (station_cashier) mit der Methode <b>get()</b> ab und zeichnet die Wartezeit vor der Kasse, die
+            Bearbeitungszeit und die Gesamtzeit an der Station auf.
+            <br><br>
+            Sobald der Kassiervorgang abgeschlossen ist, berechnet die Simulation die Durchlaufzeit für jeden Kunden.
+            Nach dem Simulationslauf werden systemweite Kennzahlen berechnet, darunter die Auslastungsfaktoren beider
+            Stationen und die Gesamtzahl der bedienten Kunden.
+            </h3>
+
+        <h3><b>SCHRITT 7: Modelltraining und -bewertung</b><br><br>
+            Um die Genauigkeit der Simulation zu beurteilen, haben wir den Auslastungsfaktor jeder Station anhand von
+            zwei Ansätzen berechnet: erstens durch Anwendung der durchschnittlichen Ankunfts- und Servicezeiten aus dem
+            Datensatz und zweitens durch manuelle Berechnung der Auslastung anhand der während der Simulation
+            aufgezeichneten Zeitstempel.
+            <br><br><b>Ergebnisse aus dem Datensatz:</b>
+            <br>+ Auslastungsfaktor der CANTEEN-Station: 1.4912927763838917
+            <br>+ Auslastungsfaktor der KASSIER-Station: 0.9009195651771269
+            <br><br><b>Ergebnisse des Simulationsmodells:</b>
+            <br>+ Auslastungsfaktor der CANTEEN-Station: 1.498312288696883
+            <br>+ Auslastungsfaktor der KASSIER-Station: 0.9030687642105081
+            <br><br>
+            <b>HINWEIS:</b> Dieser Vergleich hilft dabei, zu überprüfen, ob die erwarteten Werte aus dem Datensatz mit
+            dem während der Simulation erfassten Verhalten übereinstimmen.
+        </h3>
+
+        <video id="video_1" controls autoplay loop muted>
+            <source src="videos/project_zeta1.mp4" type="video/mp4">
+        </video>
+
+        <h3>Sowohl die visuelle Überprüfung der Simulation als auch die Ergebnisse zum Auslastungsfaktor bestätigen,
+            dass der primäre Engpass an der Kantinen-Bedienstation auftritt. Dieser Engpass wurde weiter untersucht,
+            indem die Anzahl der Bedienstellen an dieser Station erhöht wurde, um die Auswirkungen auf die Auslastung
+            und die Wartezeiten zu beobachten.
+            <br><br><b>Durchschnittliche Messwerte bei (1 Server per Station):</b>
+            <br>+ Waiting time before Canteen&nbsp;&nbsp;&nbsp;&nbsp;10020.542148
+            <br>+ Service Time Canteen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38.377895
+            <br>+ Waiting time before Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;15.112265
+            <br>+ Service Time Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.131278
+            <br>+ Lead Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;9042.589862
+        </h3>
+
+        <video id="video_2" controls autoplay loop muted>
+            <source src="videos/project_zeta2.mp4" type="video/mp4">
+        </video>
+
+        <section class="sample_code">
+            <b># PYTHON RESULTS (1 Server per Station):</b>
+            <br>Client Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1
+            <br>Waiting time before Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0
+            <br>Service Time Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22.832561
+            <br>Waiting time before Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0
+            <br>Service Time Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;51.881967
+            <br>Lead Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;74.714528
+            <br>Name: 1, dtype: object
+            <br><br>
+            <br>Client Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;48
+            <br>Waiting time before Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;391.274495
+            <br>Service Time Order&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;38.645774
+            <br>Waiting time before Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0
+            <br>Service Time Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21.77937
+            <br>Lead Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;451.699639
+            <br>Name: 48, dtype: object
+        </section>
+
+        <h3>Die Ergebnisse zeigten eine deutliche Verringerung der Wartezeiten und der Auslastung an der
+            Kantinenstation, wenn die Anzahl der Bediensteten erhöht wurde. Sobald der Auslastungsfaktor unter 1 fällt,
+            stabilisiert sich das Warteschlangensystem und der Engpass besteht nicht mehr.
+            <br><br><b>Durchschnittliche Messwerte bei (2 Servers in Canteen, 1 in Cashier):</b>
+            <br>+ Waiting time before Canteen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.566400
+            <br>+ Service Time Canteen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40.652416
+            <br>+ Waiting time before Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;25.384632
+            <br>+ Service Time Cashier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.698804
+            <br>+ Lead Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;96.270926
+            <br><br>
+            Die Simulationsergebnisse, darunter durchschnittliche Wartezeiten und Servicemetriken, zeigen messbare
+            Leistungsverbesserungen und bestätigen, dass die an der Systemarchitektur vorgenommenen Anpassungen
+            Warteschlangenverzögerungen wirksam bekämpfen. Dies zeigt deutlich, wie selbst kleine Änderungen am
+            Warteschlangensystem spürbare Auswirkungen auf die Servicequalität und den Servicefluss haben können.
+        </h3>
+
+        <h3><b>SCHRITT 8: Modellverbesserung</b><br><br>
+            Es gibt mehrere Möglichkeiten, ein Warteschlangenmodell zu verbessern, um die Realität eines
+            Warteschlangensystems genauer widerzuspiegeln, beispielsweise durch die Einbeziehung realistischer
+            Schwankungen der Arbeitslast, die sich häufig in Form von Schwankungen bei den Kundenankünften und
+            Serviceanforderungen im Laufe des Tages äußern (z. B. Spitzen- und Nebenzeiten).
+            <br><br>
+            Wenn die Simulation eine konstante Ankunftsrate annimmt, kann dies zu einer falschen Darstellung der
+            tatsächlichen Nachfragemuster führen. Um dem entgegenzuwirken, hilft die Skalierung der Ankunftsrate auf
+            der Grundlage verschiedener Tageszeiten dabei, die erhöhte Belastung während der Spitzenzeiten zu
+            simulieren und die realen Schwankungen der Arbeitsbelastung besser zu erfassen.
+            <br><br>
+            Die Einbeziehung von Spitzen- und Nebenzeiten in die Warteschlangensimulation erhöht die Genauigkeit und
+            den Realismus des Modells. Sie ermöglicht eine präzisere Darstellung der Betriebsdynamik, unterstützt
+            bessere <b>Personal- und Einsatzplanungsentscheidungen</b>, verbessert die Gesamtleistungsbewertung,
+            liefert Informationen für die Kapazitätsplanung und ermöglicht letztendlich eine effektivere
+            Entscheidungsfindung.
+        </h3>
+
+        <h3><b>FAZIT:</b><br> Durch die Entwicklung eines Warteschlangenmodells, das den Betrieb der
+            Universitätskantine genau widerspiegelt, können wir Systemengpässe genau identifizieren und Anpassungen der
+            Kapazität und der Servicezeiten als praktikable Lösungen vorschlagen.
+            <br><br>
+            Die Simulation hat gezeigt, dass die Implementierung von „2 Kellnern in der Kantine, 1 an der Kasse“
+            wichtige Engpässe während des normalen Betriebs effektiv beseitigt. Das System bleibt jedoch empfindlich
+            gegenüber Spitzenzeiten, in denen die Kundenzahl im Vergleich zu den regulären Öffnungszeiten deutlich
+            ansteigt.
+            <br><br>
+            Diese Ergebnisse unterstützen datengestützte Entscheidungen, die der Dynamik des Systems und der
+            Kundennachfrage Rechnung tragen. Weitere Tests mit dem Simulationsmodell werden weitere Erkenntnisse
+            darüber liefern, wie sich das Warteschlangensystem unter Bedingungen hoher Nachfrage verhält und wie es
+            optimiert werden kann, um Spitzenzeiten effizienter zu bewältigen.
+            <br><br>
+            <b>HINWEIS:</b> Diese vorgeschlagenen Anpassungen werden direkt durch die Simulationsergebnisse gestützt
+            und zeigen messbare Verbesserungen im Durchfluss und Durchsatz. Dies belegt die Wirksamkeit des
+            Simulationsmodells, da es auch skaliert und wiederverwendet werden kann, um zukünftige Änderungen wie
+            Neugestaltungen des Layouts oder die Integration von Selbstbedienungstechnologie zu bewerten.
+        </h3>
+    </div>
+</section>
+
+  <footer>
+    <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>
+  </footer>
+</body>
+</html>

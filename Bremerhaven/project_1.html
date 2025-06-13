@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+    <text y=%22.9em%22 font-size=%2290%22>🐸</text></svg>">
+    <meta name="description" content="Static website" />
+    <meta name="author" content="Adrián Ochoa Ferriño" />
+    <title>Projekt 1: Eine statische Website mit HTML und CSS erstellen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+</head>
+
+<body>
+<py-config>
+        packages = ["numpy", "pandas", "matplotlib"]
+</py-config>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="homepage_neu.html#project-showcase">Projekt-Schaufenster</a></li>
+        <li><a class="translation" href="project_1_en.html">English Version</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section id="homepage">
+  <h1>Erstellung einer statischen Website mit HTML und CSS:</h1>
+  <h2>Eine Demonstration, wie diese Website erstellt wurde, wie HTML und CSS zusammenarbeiten, wie man verschiedene
+      Elemente hinzufügt (wie Navigationsleisten, Bilder, Videos, Links, usw.) und wie man Python-Skripte innerhalb
+      einer Webseite ausführt.</h2>
+    <div class="project-container">
+        <h3>Der effektivste Weg, um mit einer Anwendung zu interagieren, eine Dienstleistung zu bewerben oder die
+            Arbeit eines Programmierers über eine gut gestaltete Portfolio-Website zu präsentieren, ist das Internet.
+            Vor dem Aufkommen benutzerfreundlicher Website-Baukästen wie SquareSpace und anderer „No-Code“-Plattformen
+            wurden die meisten Online-Inhalte mit Programmiersprachen erstellt, um die Struktur und das Layout einer
+            Website zu gestalten.
+            <br><br>
+            Eine statische Website, die keine serverseitigen Skripte oder Datenbankinteraktionen erfordert, besteht aus
+            einfachen HTML-, CSS- und sogar JavaScript-Dateien, die direkt im Browser des Benutzers angezeigt werden.
+            Aus diesem Grund möchte ich für dieses Projekt eine kleine Demonstration erstellen, wie man eine statische
+            Website mit HTML und CSS erstellt, indem man die folgenden Schritte befolgt:
+            <br><br>
+            <b>1.</b> Die Struktur und den Inhalt der Website planen.<br>
+            <b>2.</b> HTML-Code schreiben, um den Inhalt zu organisieren und Element wie Überschriften, Absätze,
+            Schaltflächen und Links sowie visuelle Elemente wie Bilder und Videos einzufügen.<br>
+            <b>3.</b> CSS-Code anwenden, um die Website zu gestalten, indem das Layout, die Farben, die Schriftarten und
+            andere gestalterische Aspekte angepasst werden, die dazu beitragen, bestimmte Aspekte der Website
+            hervorzuheben.<br>
+            <b>4.</b> Kombination von HTML- und CSS-Elementen für jede Seite Ihrer Website durch korrekte Verknüpfung der
+            einzelnen Elemente innerhalb der gesamten Website-Domain.<br>
+            <b>5.</b> Die erforderlichen Dateien auf einen Webserver oder Hosting-Dienst hochladen, um Ihre Website
+            öffentlich zugänglich und verfügbar zu machen.
+        </h3>
+
+        <h3>HTML-Dateien bestehen aus "Tags", die die Struktur und den Inhalt einer Webseite definieren. Jeder dieser
+            "Tags" hat festgelegte Funktionen und Aufgaben. Einige der wichtigsten "Tags" sind die folgenden:
+            <br><br>
+            <b>&lt;html&gt;</b>: Ist das Stammelement eines HTML-Dokuments. Alle anderen "Tags" sind in diesem "Tag"
+            enthalten.
+            <br><br>
+            <b>&lt;head&gt;</b>: Dieser "Tag" enthält Metadaten, die für die Website relevant sind, aber nicht im
+            Browserfenster angezeigt werden, wie z. B. den Titel der Seite, Suchmaschinen-Keywords, externe Dateien und
+            andere Arten von Metadaten.
+            <br><br>
+            <b>&lt;body&gt;</b>: Dieser "Tag" enthält den Inhalt des HTML-Dokuments, der im Browserfenster angezeigt wird.
+            <br><br>
+            <b>&lt;header&gt;</b>: Enthält in der Regel das Hauptmenü oder sogar das Logo einer Webseite.
+            <br><br>
+            <b>&lt;main&gt;</b>: Dieser "Tag" enthält den Hauptinhalt der Webseite.
+            <br><br>
+            <b>&lt;section&gt;</b>: Dieser "Tag" steht für einen einzigartigen Abschnitt einer Webseite, der sich von anderen
+            Abschnitten unterscheidet. Er wird in der Regel durch eine ID bestimmt, die durch CSS-Attribute ergänzt
+            wird und verschiedene Arten von Elementen wie Text, Bilder, Videos und Code enthalten kann.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;nav&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a class="active" href="homepage_neu.html"&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#project-showcase"&gt;Projekt-Schaufenster&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="projects_neu.html"&gt;Zukünftige Projekte&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="contact_neu.html"&gt;Kontaktinformationen&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+            <br>&lt;/nav&gt;
+            <br>
+        </section>
+
+        <h3>Um eine funktionale und optisch ansprechende Navigationsleiste zu erstellen, sind sowohl HTML- als auch
+            CSS-Code erforderlich, um nicht nur die Position, Struktur und Links zu anderen HTML-Seiten innerhalb des
+            <b>&lt;nav&gt;</b>-"Tags" hinzuzufügen, sondern auch die Schriftart, das Farbschema und einzigartige
+            CSS-Interaktionen wie eine Hover-Funktion. HTML bestimmt, wie viele Abschnitte enthalten sein sollen und
+            ob Links zu anderen Seiten oder Abschnitten einer Seite gesetzt werden sollen.
+        </h3>
+
+        <h3>Das <b>&lt;nav&gt;</b>-"Tag" in der HTML-Datei kann mit CSS-Code gekoppelt werden, um zusätzliche Funktionen
+            hinzuzufügen. CSS kann mithilfe eines &lt;style&gt;-"Tags" in HTML eingebettet oder über das &lt;link&gt;-"Tag" im
+            &lt;head&gt;-Bereich extern verknüpft werden. Zu den CSS-Eigenschaften für <b>&lt;nav&gt;</b> können Textausrichtung,
+            Hintergrundfarbe und Anzeigeoptionen gehören.
+            <br><br>
+            Die CSS-Komponente für das <b>&lt;nav&gt;</b>-"Tag" kann entweder direkt in der HTML-Datei mit dem <b>&lt;style&gt;</b>
+            -"Tag" geschrieben werden, oder Sie können mit dem <b>&lt;link&gt;</b>-"Tag" im <b>&lt;head&gt;</b>-Bereich der
+            HTML-Datei auf eine externe CSS-Datei verweisen.
+            <br><br>
+            In beiden Fällen kann das <b>&lt;nav&gt;</b>-"Tag" in CSS so konfiguriert werden, dass es Attribute wie
+            Textausrichtung, Hintergrundfarbe, Anzeigeeinstellungen und vieles mehr enthält.
+        </h3>
+
+        <section class="sample_code">
+            <b># CSS CODE</b>
+            <br>nav {
+            <br>&nbsp;&nbsp;&nbsp;background-color: #232020;
+            <br>&nbsp;&nbsp;&nbsp;display: flex;
+            <br>&nbsp;&nbsp;&nbsp;height: flex;
+            <br>&nbsp;&nbsp;&nbsp;width: 100%;
+            <br>&nbsp;&nbsp;&nbsp;justify-content: space-between;
+            <br>&nbsp;&nbsp;&nbsp;padding: 20px;
+            <br>&nbsp;&nbsp;&nbsp;overflow: hidden;
+            <br>&nbsp;&nbsp;&nbsp;position: fixed;
+            <br>}
+            <br><br>nav a {
+            <br>&nbsp;&nbsp;&nbsp;color: #E1E6E1;
+            <br>&nbsp;&nbsp;&nbsp;text-decoration: none;
+            <br>&nbsp;&nbsp;&nbsp;text-align: center;
+            <br>&nbsp;&nbsp;&nbsp;padding: 20px;
+            <br>}
+            <br><br>nav a:hover {
+            <br>&nbsp;&nbsp;&nbsp;background-color: #F24236;
+            <br>&nbsp;&nbsp;&nbsp;color: #232020;
+            <br>}
+            <br>
+        </section>
+
+        <img src="bilder/project_ein1.png" alt="Project screenshot">
+
+        <h3>Um Medien wie Bilder oder Videos hinzuzufügen, verwendet der <b>&lt;img&gt;</b>-"Tag" das Attribut „src“, um den
+            Dateipfad des Bildes zu definieren, und das Attribut „alt“, um eine Beschreibung des angezeigten Inhalts
+            bereitzustellen.
+            <br><br>
+            Insgesamt kann der <b>&lt;img&gt;</b>-"Tag" durch CSS-Komponenten verbessert werden, um ihn optisch ansprechender
+            zu gestalten, indem Rahmen, Schatten, Filter und Effekte geändert werden oder er sogar an die Größe des
+            Bildschirms des Benutzers angepasst wird.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&nbsp;&nbsp;&nbsp;&lt;img src="bilder/project_ein1.png" alt="Project screenshot"&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.project-container img {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 672px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 378px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 20px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 30px;
+            <br>}
+            <br>
+        </section>
+
+        <video id="video" controls autoplay loop muted>
+            <source src="videos/project_ein.mp4" type="video/mp4">
+        </video>
+
+        <h3>Andererseits verfügt das <b>&lt;video&gt;</b>-"Tag" über HTML-Attribute wie „controls“, das angibt, dass
+            Videokontrollen angezeigt werden sollen, „playsinline“, das angibt, dass das Video innerhalb des Elements
+            abgespielt werden soll, sowie weitere Attribute wie „width“, „height“, ‚loop‘ und „muted“.
+            <br><br>
+            <b>HINWEIS:</b> Der &lt;video&gt;-"Tag" unterstützt die globalen und Ereignisattribute in HTML, die auch für
+            Audioinhalte verwendet werden können, anstatt dass der &lt;video&gt;-"Tag" möglicherweise eine angemessenere
+            Benutzererfahrung bietet.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&nbsp;&nbsp;&nbsp;&lt;video id="video" controls autoplay loop muted&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;source src="videos/project_ein.mp4" type="video/mp4"&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;/video&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.project-container video {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 672px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 378px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 20px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 30px;
+            <br>}
+            <br>
+        </section>
+
+        <h3>Auf einer Portfolio-Website ist es sehr wichtig, dass die Kontaktseite Links zu anderen Social-Media-Seiten
+            wie LinkedIn, GitHub usw. enthält. Im Falle eines LinkedIn-Profils reichen ein <b>'href'</b>- und ein
+            <b>'target'</b>-Attribut aus. ‚href‘ definiert die URL, auf die der Hyperlink verweist, während
+            „target“ angibt, wo die verlinkte URL angezeigt werden soll (_blank: bedeutet einen neuen Tab).
+            <br><br>
+            Um Attribute sowohl zum Container auf der Kontaktseite (Logos) als auch zum Bild selbst (Logo)
+            hinzuzufügen, muss für beide ein CSS-Segment hinzugefügt werden, damit nicht nur die Platzierung der
+            Bilder, sondern auch das Verhalten des Bildes an seiner Position festgelegt werden kann.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;div class="logos"&gt;
+            <br>&lt;h3&gt; LinkedIn Profil
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="https://www.linkedin.com/in/adri%C3%A1n-ochoa-ferri%C3%B1o-520a5918b/?locale=de_DE"
+            target="_blank"&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="bilder/linkedin_logo.png" alt="LinkedIn Logo" class="logo"&gt;&lt;/a&gt;
+            <br>&lt;/h3&gt;
+            <br>&lt;/div&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.logos {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: flex;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;justify-content: center;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-top: 10px;
+            <br>}
+            <br><br>.logo {
+            <br>margin: 0 10px;
+            <br>}
+        </section>
+
+        <div id="plot-container">
+            <py-script>
+                import numpy as np
+                from pyscript import display
+                import matplotlib.pyplot as plt
+
+                x1 = np.random.rand(80)
+                y1 = np.random.rand(80)
+                x2 = np.random.rand(80)
+                y2 = np.random.rand(80)
+
+                fig, ax = plt.subplots()
+                ax.scatter(x1, y1, color='green', label='First set')
+                ax.scatter(x2, y2, color='olive', label='Second set')
+                ax.set_title('MATPLOTLIB GRAPH using PyScript')
+                ax.set_xlabel('Great for data visualization')
+                ax.set_ylabel('Adaptable to most Machine Learning packages')
+                display(fig, target="plot-container")
+            </py-script>
+        </div>
+
+        <h3><b>PyScript</b> ist ein Python-Framework, mit dem Sie Python-Code innerhalb einer Webseite nur mit einer
+            HTML-Datei ausführen können. PyScript ist besonders nützlich für Programmierer, die mit JavaScript nicht
+            vertraut sind, und dient als praktikable Alternative zu dem, was normalerweise mit der Programmiersprache
+            JavaScript erledigt wird. Damit lassen sich wesentlich komplexere Webseiten erstellen, die mit Datenbanken
+            interagieren, Grafiken generieren oder serverseitige Aufgaben innerhalb dynamischer Websites ausführen.
+            <br><br>
+            <b>PyScript</b> kann gängige Python-Module importieren und Python-Code nahtlos innerhalb einer HTML-Datei
+            ausführen, indem es einfach eine Verknüpfung zu pyscript.net herstellt und die entsprechenden
+            Bibliothekspakete importiert, wodurch Funktionen verfügbar werden, die sonst nur in Python verfügbar sind.
+            <br><br>
+            <b>HINWEIS:</b> PyScript hat noch einige Einschränkungen und kann nicht alle Python-Bibliotheken ausführen.
+            Es unterstützt jedoch weiterhin äußerst nützliche Pakete für die Visualisierung und Datenverarbeitung wie
+            NumPy, pandas, scikit-learn und matplotlib.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;py-config&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;packages = ["numpy", "pandas", "matplotlib"]
+            <br>&lt;py-config&gt;
+            <br><br><br>
+            <b># Python CODE</b>
+            <br>&lt;py-script&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import numpy as np
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def test_button():
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n_array = [1,2,3,4,5,6,7,8]
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n_random = [np.random.choice(n_array) for _ in range(6)]
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display(n_random, append=False, target="test_id")
+            <br>&lt;py-script&gt;
+            <br><br>
+            <py-script>
+                import numpy as np
+                def test_button():
+                    n_array = [1,2,3,4,5,6,7,8]
+                    n_random = [np.random.choice(n_array) for _ in range(6)]
+                    display(n_random, append=False, target="test_id")
+            </py-script>
+        </section>
+
+        <h3>Dank <b>PyScript</b> ist es einfacher, Daten mit Python-Tools zu visualisieren, um komplexe Informationen
+            zu erklären und Muster, Trends oder Ausreißer zu veranschaulichen. PyScript ist insgesamt nützlich, um
+            dynamische Ergebnisse aus projektspezifischen Ausgaben anzuzeigen.
+            <br><br>
+            Als kurze Demonstration: Die folgende Schaltfläche generiert ein NumPy-Array mit Zufallszahlen von 1 bis 8
+            unter Verwendung des zuvor angezeigten Python-Codes.<br><br>
+            <button onclick="generateRandomNumbers()">- Probiere den Python Code aus-</button>
+            <div id="randomNumbers"></div>
+
+            <script>
+            function generateRandomNumbers() {
+                var n_array = [1, 2, 3, 4, 5, 6, 7, 8];
+                var n_random = [];
+
+                // Generate 6 random numbers
+                for (var i = 0; i < 6; i++) {
+                    var randomNumber = Math.floor(Math.random() * n_array.length);
+                    n_random.push(n_array[randomNumber]);
+                }
+
+                // Display random numbers
+                var output = "[" + n_random.join(", ") + "]";
+                document.getElementById("randomNumbers").innerText = output;
+            }
+            </script>
+        </h3>
+
+        <h3><b>FAZIT:</b><br> Die Erstellung einer statischen Website mit HTML und CSS bietet eine kreative
+            Möglichkeit, ein Programmierportfolio zu präsentieren, sodass Programmierer wie ich die Fähigkeiten zeigen
+            können, die ich im Laufe meiner Karriere als Datenanalyst entwickelt habe.
+            <br><br>
+            Aus diesem Grund hilft mir ein Programmierportfolio dabei, verschiedene Datenanalysetechniken in den
+            Bereichen Datenbereinigung, Visualisierung und statistische Analyse zu präsentieren. All dies mit dem Ziel,
+            die Auswirkungen hervorzuheben, die datengestützte Entscheidungen in jeder Branche haben können.
+        </h3>
+
+        <h3>Darüber hinaus dient ein Coding-Portfolio als Nachweis für meine Erfahrung in der Entwicklung und
+            Implementierung von Vorhersagemodellen, statistischen Algorithmen und Techniken des maschinellen Lernens.
+            <br><br>
+            Insgesamt sollte jeder Entwickler datenorientierter Produkte eine Plattform bereitstellen, um sein
+            Fachwissen zu präsentieren und seine Problemlösungs- und technischen Fähigkeiten über eine einfach zu
+            verwaltende Oberfläche zu demonstrieren. Darüber hinaus sind statische Websites leichtgewichtig, einfacher
+            zu warten und schnell zu laden. So wird eine gute Benutzererfahrung für Besucher gewährleistet.
+        </h3>
+    </div>
+</section>
+
+  <footer>
+    <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>
+  </footer>
+</body>
+</html>

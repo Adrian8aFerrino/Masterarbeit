@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22>
+    <text y=%22.9em%22 font-size=%2290%22>🐸</text></svg>">
+    <meta name="description" content="Static website" />
+    <meta name="author" content="Adrián Ochoa Ferriño" />
+    <title>Project 1: Creating a static website with html and css</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+</head>
+
+<body>
+<py-config>
+        packages = ["numpy", "pandas", "matplotlib"]
+</py-config>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="homepage_neu.html#project-showcase">Projekt-Schaufenster</a></li>
+        <li><a class="translation" href="project_1.html">Deutsche Version</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section id="homepage">
+  <h1>Creation a static website with HTML and CSS:</h1>
+  <h2>A demonstration of how this website was built, how HTML and CSS work together, how to add different elements
+      (like a navigation bar, images, videos, links, etc.), and how to run Python scripts directly within a web page.
+  </h2>
+    <div class="project-container">
+        <h3>The most effective way to interact with an application, promote a service, or showcase a programmer's work
+            via a well-designed portfolio website is through the internet. Before the rise of user-friendly website
+            builders like SquareSpace and other "no-code" platforms, most online content was created using programming
+            languages to construct the structure and layout of a website.
+            <br><br>
+            A static website, which doesn't require server-side scripting or database interactions, consists of simple
+            HTML, CSS and even JavaScript files served directly into the user's browser, which is why for this project
+            I would like to make a small demonstration of how to create a static website using HTML and CSS by
+            following these steps:
+            <br><br>
+            1. <b>Plan</b> the structure and content of the website.<br>
+            2. <b>Write</b> HTML code to organize the content and include elements such as headings, paragraphs,
+            buttons and links, as well as visual elements like images and videos.<br>
+            3. <b>Apply</b> CSS code to style the website by adjusting the layout, colors, font styles, and other
+            styling aspects that helps in highlighting certain aspects of the website.<br>
+            4. <b>Combine</b> both HTML and CSS elements for each page of your website by correctly linking each
+            element throughout the website domain.<br>
+            5. <b>Upload</b> the necessary files to a web server or hosting service to make your website publicly
+            accessible and available within the future.
+        </h3>
+
+        <h3>HTML files are made up of tags that define the structure and content of a web page. Each of these tags
+            have a pre-established features and roles. Some of the most important tags are the following:
+            <br><br>
+            <b>&lt;html&gt;</b>: Is the root element of an HTML document. All other tags are contained within this tag.
+            <br><br>
+            <b>&lt;head&gt;</b>: This tag contains metadata relevant to the website that is not displayed in the
+            browser window such as the title of the page, search engine keywords, external files, among other types of
+            metadata inputs.
+            <br><br>
+            <b>&lt;body&gt;</b>: This tag contains the content of the HTML document that is displayed in the browser
+            window.
+            <br><br>
+            <b>&lt;header&gt;</b>: Typically contains the main menu or even the logo of a web page.
+            <br><br>
+            <b>&lt;main&gt;</b>: This tag contains the main content of the web page.
+            <br><br>
+            <b>&lt;section&gt;</b>: This tag represents a unique section of a web page that behaves uniquely from another.
+            It is usually determined by an id, which is complimented by CSS attributes and can hold different
+            types of elements like text, images, videos, and code within it.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;nav&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;ul&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a class="active" href="homepage_neu.html"&gt;Startseite&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#project-showcase"&gt;Projekt-Schaufenster&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="projects_neu.html"&gt;Zukünftige Projekte&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="contact_neu.html"&gt;Kontaktinformationen&lt;/a&gt;&lt;/li&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;/ul&gt;
+            <br>&lt;/nav&gt;
+            <br>
+        </section>
+
+        <h3>To create a functional and visually appealing navigation bar, both HTML and CSS code is required to not
+            only add the location, structure and links to other html pages within the <b>&lt;nav&gt;</b> tag but also the
+            font, color scheme and unique CSS interactions like a hover feature. HTML determines how many sections to
+            include and whether to link to other pages or sections of a page.
+        </h3>
+
+        <h3>The <b>&lt;nav&gt;</b> tag in the HTML file can be coupled with CSS code  adds additional functionality
+            CSS can be embedded in HTML using a &lt;style&gt; tag or linked externally with the &lt;link&gt; tag within the
+            &lt;head&gt; section. CSS properties for <b>&lt;nav&gt;</b> might include text alignment, background color, and
+            display options.
+            <br><br>
+            Meanwhile, the CSS component for the <b>&lt;nav&gt;</b> tag can either be written directly in the HTML file using
+            the <b>&lt;style&gt;</b> tag, or you can link to an external CSS file using the <b>&lt;link&gt;</b> tag in the
+            <b>&lt;head&gt;</b> section of the HTML file.
+            <br><br>
+            In either case, the <b>&lt;nav&gt;</b> tag in CSS can be configured in a way so that it contains attributes such
+            as text alignment, background color, display settings, and many more.
+        </h3>
+
+        <section class="sample_code">
+            <b># CSS CODE</b>
+            <br>nav {
+            <br>&nbsp;&nbsp;&nbsp;background-color: #232020;
+            <br>&nbsp;&nbsp;&nbsp;display: flex;
+            <br>&nbsp;&nbsp;&nbsp;height: flex;
+            <br>&nbsp;&nbsp;&nbsp;width: 100%;
+            <br>&nbsp;&nbsp;&nbsp;justify-content: space-between;
+            <br>&nbsp;&nbsp;&nbsp;padding: 20px;
+            <br>&nbsp;&nbsp;&nbsp;overflow: hidden;
+            <br>&nbsp;&nbsp;&nbsp;position: fixed;
+            <br>}
+            <br><br>nav a {
+            <br>&nbsp;&nbsp;&nbsp;color: #E1E6E1;
+            <br>&nbsp;&nbsp;&nbsp;text-decoration: none;
+            <br>&nbsp;&nbsp;&nbsp;text-align: center;
+            <br>&nbsp;&nbsp;&nbsp;padding: 20px;
+            <br>}
+            <br><br>nav a:hover {
+            <br>&nbsp;&nbsp;&nbsp;background-color: #F24236;
+            <br>&nbsp;&nbsp;&nbsp;color: #232020;
+            <br>}
+            <br>
+        </section>
+
+        <img src="bilder/project_ein1.png" alt="Project screenshot">
+
+        <h3>To add media like an image or a video, the <b>&lt;img&gt;</b> tag utilizes the 'src' attribute to define the file
+            path of the image and the 'alt' attribute that provides a description of what is being displayed.
+            <br><br>
+            Overall, the <b>&lt;img&gt;</b> tag can be enhanced by CSS components in order to make them more visually
+            appealing by changing the borders, shadows, filters, effects, or even make it responsive to the size of the
+            user's screen.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&nbsp;&nbsp;&nbsp;&lt;img src="bilder/project_ein1.png" alt="Project screenshot"&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.project-container img {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 672px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 378px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 20px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 30px;
+            <br>}
+            <br>
+        </section>
+
+        <video id="video" controls autoplay loop muted>
+            <source src="videos/project_ein.mp4" type="video/mp4">
+        </video>
+
+        <h3> On the other hand the <b>&lt;video&gt;</b> tag has html attributes like 'controls' which specifies that
+            video controls should be displayed, 'playsinline' which specifies the video should play inside the element,
+            among other attributes like: 'width', 'height', 'loop' and 'muted'.
+            <br><br>
+            <b>NOTE:</b> The &lt;video&gt; tag supports the Global and Event Attributes in HTML, which can be used for audio
+            content as well instead of the &lt;video&gt; tag may provide a more appropriate user experience.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&nbsp;&nbsp;&nbsp;&lt;video id="video" controls autoplay loop muted&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;source src="videos/project_ein.mp4" type="video/mp4"&gt;
+            <br>&nbsp;&nbsp;&nbsp;&lt;/video&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.project-container video {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 672px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 378px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-right: 20px;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 30px;
+            <br>}
+            <br>
+        </section>
+
+        <h3>Within a portfolio website it is very important for a contact page to add links to other social media sites
+            like LinkedIn, GitHub, etc. In the case of a LinkedIn profile an <b>'href'</b> and a <b>'target'</b>
+            attribute are enough. 'href' defines the URL that the hyperlink points to, while 'target' specifies where
+            the linked URL should be displayed (_blank: means a new tab).
+            <br><br>
+            In order to add attributes to both the container in the contact page (logos) and the image itself (logo)
+            a CSS segment has to be added for both to enable not only the placement of the images but also how the
+            image behaves in its placement.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;div class="logos"&gt;
+            <br>&lt;h3&gt; LinkedIn Profil
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="https://www.linkedin.com/in/adri%C3%A1n-ochoa-ferri%C3%B1o-520a5918b/?locale=de_DE"
+            target="_blank"&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="bilder/linkedin_logo.png" alt="LinkedIn Logo" class="logo"&gt;&lt;/a&gt;
+            <br>&lt;/h3&gt;
+            <br>&lt;/div&gt;
+            <br><br><br>
+            <b># CSS CODE</b>
+            <br>.logos {
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: flex;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;justify-content: center;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-top: 10px;
+            <br>}
+            <br><br>.logo {
+            <br>margin: 0 10px;
+            <br>}
+        </section>
+
+        <div id="plot-container">
+            <py-script>
+                import numpy as np
+                from pyscript import display
+                import matplotlib.pyplot as plt
+
+                x1 = np.random.rand(80)
+                y1 = np.random.rand(80)
+                x2 = np.random.rand(80)
+                y2 = np.random.rand(80)
+
+                fig, ax = plt.subplots()
+                ax.scatter(x1, y1, color='green', label='First set')
+                ax.scatter(x2, y2, color='olive', label='Second set')
+                ax.set_title('MATPLOTLIB GRAPH using PyScript')
+                ax.set_xlabel('Great for data visualization')
+                ax.set_ylabel('Adaptable to most Machine Learning packages')
+                display(fig, target="plot-container")
+            </py-script>
+        </div>
+
+        <h3><b>PyScript</b> is a Python framework that allows you to execute Python code from within a web page using
+            only an HTML file. PyScript is particularly useful for programmers who are not familiar with JavaScript,
+            serves as a viable alternative to what would usually be handled by the programming language of Javascript,
+            which enables the creation of much more complex web pages that interact with databases, generate graphs
+            or perform server-side tasks within dynamic websites.
+            <br><br>
+            <b>PyScript</b> is able to import common Python modules and run Python code seamlessly within an HTML file
+            just by linking - pyscript.net - and importing relevant library packages, enabling features otherwise only
+            available in Python.
+            <br><br>
+            <b>NOTE:</b> PyScript still has some limitations and cannot run all Python libraries. However, it still
+            supports extremely useful packages for visualization and data handling like NumPy, pandas, scikit-learn and
+            matplotlib.
+        </h3>
+
+        <section class="sample_code">
+            <b># HTML CODE</b>
+            <br>&lt;py-config&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;packages = ["numpy", "pandas", "matplotlib"]
+            <br>&lt;py-config&gt;
+            <br><br><br>
+            <b># Python CODE</b>
+            <br>&lt;py-script&gt;
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import numpy as np
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def test_button():
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n_array = [1,2,3,4,5,6,7,8]
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n_random = [np.random.choice(n_array) for _ in range(6)]
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display(n_random, append=False, target="test_id")
+            <br>&lt;py-script&gt;
+            <br><br>
+            <py-script>
+                import numpy as np
+                def test_button():
+                    n_array = [1,2,3,4,5,6,7,8]
+                    n_random = [np.random.choice(n_array) for _ in range(6)]
+                    display(n_random, append=False, target="test_id")
+            </py-script>
+        </section>
+
+        <h3>Thanks to <b>PyScript</b>, it's easier to visualize data using Python tools to explain complex information
+            and illustrate patterns, trends, or outliers. PyScript overall is useful for enabling the display of
+            dynamic results from project-specific outputs.
+            <br><br>
+            As a short demonstration: the following Button generates a NumPy array with random numbers from 1 to 8
+            using the Python code that was previously displayed.<br><br>
+            <button onclick="generateRandomNumbers()">- Test Python Code -</button>
+            <div id="randomNumbers"></div>
+
+            <script>
+            function generateRandomNumbers() {
+                var n_array = [1, 2, 3, 4, 5, 6, 7, 8];
+                var n_random = [];
+
+                // Generate 6 random numbers
+                for (var i = 0; i < 6; i++) {
+                    var randomNumber = Math.floor(Math.random() * n_array.length);
+                    n_random.push(n_array[randomNumber]);
+                }
+
+                // Display random numbers
+                var output = "[" + n_random.join(", ") + "]";
+                document.getElementById("randomNumbers").innerText = output;
+            }
+            </script>
+        </h3>
+
+        <h3><b>CONCLUSION:</b><br> Building a statis website using HTML and CSS offers a creative way to showcase a
+            programming portfolio, allowing programmers like me to showcase the skills i've developed through my career
+            as a Promoter of intelligent solutions.<br><br>
+            Since my skills relies on elaborate techniques in data handling, visualization and statistical analysis, I
+            found it necessary to display how these skills can be applied on a wide range of problems that can be found
+            in various industries. All for the purpose of highlight the impact that data-driven decisions can have on
+            business understanding, data analysis, and simulation/optimization modeling
+        </h3>
+
+        <h3>Moreover, a coding portfolio serves as evidence of the working experience I've developed during my career
+            as a developer that has worked on implementing predictive models, applying statistical algorithms, and
+            utilizing machine learning techniques in order to provide valuable solutions.
+            <br><br> Overall, static websites are lightweight, easy to maintain, and a fast-loading—ensuring platform,
+            where any type of developer could showcase their expertise as well as demonstrate their problem-solving and
+            technical abilities through a simple to manage interface.
+        </h3>
+    </div>
+</section>
+
+
+  <footer>
+    <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>
+  </footer>
+</body>
+</html>
