@@ -1,0 +1,139 @@
+"electricity final consumption by sector in Norway",Value,Year,Units
+"Industry",185637,2000, TJ
+"Industry",177559,2001, TJ
+"Industry",170629,2002, TJ
+"Industry",171946,2003, TJ
+"Industry",184456,2004, TJ
+"Industry",187290,2005, TJ
+"Industry",179625,2006, TJ
+"Industry",178768,2007, TJ
+"Industry",182361,2008, TJ
+"Industry",148640,2009, TJ
+"Industry",160286,2010, TJ
+"Industry",159102,2011, TJ
+"Industry",156571,2012, TJ
+"Industry",156052,2013, TJ
+"Industry",160005,2014, TJ
+"Industry",162043,2015, TJ
+"Industry",165811,2016, TJ
+"Industry",166185,2017, TJ
+"Industry",168324,2018, TJ
+"Industry",166750,2019, TJ
+"Industry",168628,2020, TJ
+"Industry",176734,2021, TJ
+"Industry",172783,2022, TJ
+"Transport",2246,2000, TJ
+"Transport",2289,2001, TJ
+"Transport",2267,2002, TJ
+"Transport",2232,2003, TJ
+"Transport",2127,2004, TJ
+"Transport",2163,2005, TJ
+"Transport",2332,2006, TJ
+"Transport",2300,2007, TJ
+"Transport",2462,2008, TJ
+"Transport",2376,2009, TJ
+"Transport",2056,2010, TJ
+"Transport",1967,2011, TJ
+"Transport",2240,2012, TJ
+"Transport",2257,2013, TJ
+"Transport",2350,2014, TJ
+"Transport",2864,2015, TJ
+"Transport",3067,2016, TJ
+"Transport",3775,2017, TJ
+"Transport",4344,2018, TJ
+"Transport",5126,2019, TJ
+"Transport",6360,2020, TJ
+"Transport",8021,2021, TJ
+"Transport",10491,2022, TJ
+"Residential",124707,2000, TJ
+"Residential",129153,2001, TJ
+"Residential",124729,2002, TJ
+"Residential",115282,2003, TJ
+"Residential",116658,2004, TJ
+"Residential",122421,2005, TJ
+"Residential",121125,2006, TJ
+"Residential",125812,2007, TJ
+"Residential",125600,2008, TJ
+"Residential",130726,2009, TJ
+"Residential",143032,2010, TJ
+"Residential",129803,2011, TJ
+"Residential",137688,2012, TJ
+"Residential",140047,2013, TJ
+"Residential",132736,2014, TJ
+"Residential",138851,2015, TJ
+"Residential",143435,2016, TJ
+"Residential",144477,2017, TJ
+"Residential",145456,2018, TJ
+"Residential",144027,2019, TJ
+"Residential",143582,2020, TJ
+"Residential",149679,2021, TJ
+"Residential",130851,2022, TJ
+"Commercial and Public Services",74123,2000, TJ
+"Commercial and Public Services",86828,2001, TJ
+"Commercial and Public Services",87562,2002, TJ
+"Commercial and Public Services",74998,2003, TJ
+"Commercial and Public Services",77709,2004, TJ
+"Commercial and Public Services",79034,2005, TJ
+"Commercial and Public Services",76176,2006, TJ
+"Commercial and Public Services",83959,2007, TJ
+"Commercial and Public Services",85161,2008, TJ
+"Commercial and Public Services",96811,2009, TJ
+"Commercial and Public Services",95646,2010, TJ
+"Commercial and Public Services",90666,2011, TJ
+"Commercial and Public Services",94183,2012, TJ
+"Commercial and Public Services",95387,2013, TJ
+"Commercial and Public Services",90419,2014, TJ
+"Commercial and Public Services",90539,2015, TJ
+"Commercial and Public Services",92559,2016, TJ
+"Commercial and Public Services",91904,2017, TJ
+"Commercial and Public Services",95219,2018, TJ
+"Commercial and Public Services",94193,2019, TJ
+"Commercial and Public Services",91103,2020, TJ
+"Commercial and Public Services",96680,2021, TJ
+"Commercial and Public Services",91830,2022, TJ
+"Agriculture / Forestry",7603,2000, TJ
+"Agriculture / Forestry",8038,2001, TJ
+"Agriculture / Forestry",7617,2002, TJ
+"Agriculture / Forestry",6404,2003, TJ
+"Agriculture / Forestry",7052,2004, TJ
+"Agriculture / Forestry",7146,2005, TJ
+"Agriculture / Forestry",6840,2006, TJ
+"Agriculture / Forestry",6969,2007, TJ
+"Agriculture / Forestry",7048,2008, TJ
+"Agriculture / Forestry",6955,2009, TJ
+"Agriculture / Forestry",7042,2010, TJ
+"Agriculture / Forestry",6435,2011, TJ
+"Agriculture / Forestry",6790,2012, TJ
+"Agriculture / Forestry",6674,2013, TJ
+"Agriculture / Forestry",6281,2014, TJ
+"Agriculture / Forestry",6494,2015, TJ
+"Agriculture / Forestry",6705,2016, TJ
+"Agriculture / Forestry",7062,2017, TJ
+"Agriculture / Forestry",7283,2018, TJ
+"Agriculture / Forestry",7423,2019, TJ
+"Agriculture / Forestry",7748,2020, TJ
+"Agriculture / Forestry",8007,2021, TJ
+"Agriculture / Forestry",7418,2022, TJ
+"Fishing",,2000, TJ
+"Fishing",,2001, TJ
+"Fishing",,2002, TJ
+"Fishing",489,2003, TJ
+"Fishing",489,2004, TJ
+"Fishing",561,2005, TJ
+"Fishing",536,2006, TJ
+"Fishing",529,2007, TJ
+"Fishing",640,2008, TJ
+"Fishing",723,2009, TJ
+"Fishing",782,2010, TJ
+"Fishing",715,2011, TJ
+"Fishing",754,2012, TJ
+"Fishing",741,2013, TJ
+"Fishing",697,2014, TJ
+"Fishing",721,2015, TJ
+"Fishing",745,2016, TJ
+"Fishing",784,2017, TJ
+"Fishing",809,2018, TJ
+"Fishing",824,2019, TJ
+"Fishing",860,2020, TJ
+"Fishing",889,2021, TJ
+"Fishing",824,2022, TJ
