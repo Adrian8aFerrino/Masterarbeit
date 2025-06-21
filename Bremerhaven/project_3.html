@@ -92,7 +92,7 @@
 
         </h3>
 
-        <h3><b>SCHRITTE 1: Verständnis der Industrie</b><br><br>
+        <h3><b>SCHRITT 1: Verständnis der Industrie</b><br><br>
             <b>I. Qualitätskontrolle:</b><br>
             Die Qualitätskontrolle ist ein wesentlicher Prozess in der Fertigung, der darauf abzielt, Fehler oder
             Abweichungen vom idealen Produktionsprozess zu identifizieren und zu korrigieren. Dieses Projekt wurde
@@ -122,7 +122,7 @@
             zurückzuführen ist.)
         </h3>
 
-        <h3><b>SCHRITTE 2: Data Understanding</b><br><br>
+        <h3><b>SCHRITT 2: Data Understanding</b><br><br>
             Das Verständnis der Daten umfasst alle Aktivitäten im Zusammenhang mit der Untersuchung der Struktur, des
             Inhalts und der Qualität der Datensätze, die für das Problem relevant sind. Bei diesem Fertigungsprojekt
             liegt der Schwerpunkt in erster Linie auf der Bewertung der Verwendbarkeit der Sensormesswerte,
@@ -211,7 +211,7 @@
 
         <img src="bilder/project_drei3.png" alt="DRI Process">
 
-        <h3><b>SCHRITTE 3: Aufbereitung der Daten</b><br><br>
+        <h3><b>SCHRITT 3: Aufbereitung der Daten</b><br><br>
             Nachdem nun alle Daten erfasst und vorverarbeitet wurden, können wir feststellen, dass jeder Datensatz aus
             einem anderen Messpunkt innerhalb des Direktreduktionsprozesses stammt. Dies spiegelt die Funktionsweise
             tatsächlicher langsamer industrieller Prozesse wider, bei denen Daten asynchron aus mehreren
@@ -295,39 +295,36 @@
             nicht übereinstimmender Beobachtungen.
         </h3>
 
-        <h3><b>STEP 4: Data Exploration and Visualization</b><br><br>
+        <h3><b>SCHRITT 4: Datenexploration und -visualisierung</b><br><br>
+            Nachdem alle Datensätze zeitlich abgeglichen und zu einer einheitlichen Struktur zusammengeführt wurden,
+            können wir nun mit der Datenexploration und -visualisierung fortfahren. Dabei kommen verschiedene
+            statistische und Visualisierungstechniken zum Einsatz, die dazu dienen, die statistischen Eigenschaften
+            aller oben genannten Variablen zu verstehen, Zusammenhänge aufzudecken, Trends und Anomalien zu
+            identifizieren sowie eine fundierte Variablenauswahl für die Modellierungsphase vorzubereiten.
+            <br><br>
+            Angesichts der hohen Anzahl unabhängiger Variablen im neu strukturierten Datensatz (52 unabhängige
+            Variablen) ist es logisch, dass das Modell mit Problemen im Zusammenhang mit hoher Dimensionalität
+            konfrontiert sein könnte. Datensätze mit hoher Dimensionalität stellen mehrere Herausforderungen dar: Sie
+            können zu Überanpassung, erhöhtem Rechenaufwand und unnötiger Modellkomplexität führen, was die
+            Interpretierbarkeit und Robustheit von Vorhersagemodellen wie dem von uns geplanten beeinträchtigen kann.
+            <br><br>
+            Dimensionsprobleme treten häufig auf, wenn mehrere Merkmale stark korrelieren, d. h. sie überlappende oder
+            redundante Informationen vermitteln. Diese Redundanz kann die Interpretierbarkeit statistischer Tests für
+            die abhängigen DRI-Produktvariablen beeinträchtigen und kann durch Techniken zur <b>Dimensionsreduktion</b>
+            behoben werden. Dazu muss eine Korrelationsanalyse durchgeführt werden.
             Now that the data from all sources are completely aligned it is time to apply data exploration and
             visualization techniques in order to understand the data's characteristics, uncover potential patterns, and
             make informed decisions about which variables are relevant for the modeling phase.
-            <br><br>
-            Due to the fact that we are handling a great number of independent variables (52) it is important for us to
-            first examine dimensionality problems that might surface when building our model. This is done because
-            <b>Dimensionality reduction</b> improves the interpretability, stability, computational efficiency and
-            performance of statistical models and forecasting algorithms.
-            <br><br>
-            Dimensionality problems arise when multiple variables are highly correlated, which means that they carry
-            redundant information. This redundancy can inflate the dimensionality of the dataset without providing new
-            insights. Within this project, we will try out two different methods of dimensionality reduction and compare
-            the performance of the model, as a way to objectively compare which method offers higher value to the end
-            result.
-            <br><br>
-            The methods that we'll try out during this project will be <b>Reverse Stepwise Regression</b> and
-            <b>Principal Component Analysis (PCA)</b> which both require an in-depth analysis of the relationships
-            between independent variables as a way to determine which variables offer redundancy within the dataset.
-            In this project, we will not only apply basic Pearson correlation metrics but also prove if there are
-            non-linear relationships between the variables using Spearman's rank correlation coefficient.
-            <br><br>
-            <b>Note:</b> Reverse Stepwise Regression and PCA will help in understanding which variables impact the most
-            in waste generation <b>(Quality Control)</b> and enable the creation of more accurate models that forecast
-            the amount of waste produced <b>(Quality prediction)</b>.
         </h3>
 
         <section class="sample_code">
-            <b>Pearson's correlation matrix</b> measures the linear relationship between two continuous variables, which
-            in the case of our dataset, it is applicable to all prepared data. Pearson's correlation is commonly used
-            when analyzing relationships between variables with continuous data, assuming that the data is normally
-            distributed and that the relationship between all variables is linear.
+            Die <b>Pearson-Korrelationsmatrix</b> misst die lineare Beziehung zwischen zwei kontinuierlichen
+            Variablen, was im Fall unseres Datensatzes auf alle vorbereiteten Daten anwendbar ist. Die
+            Pearson-Korrelation wird häufig bei der Analyse von Beziehungen zwischen Variablen mit kontinuierlichen
+            Daten verwendet, wobei davon ausgegangen wird, dass die Daten normalverteilt sind und dass die Beziehung
+            zwischen allen Variablen linear ist.
             <br><br>
+
             <div id="pearson_heatmap">
                 <py-script>
                 import pandas as pd
@@ -336,7 +333,8 @@
                 import matplotlib.pyplot as plt
                 from pyscript import display
 
-                df_1 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Pearson Correlation", header=0, index_col=0)
+                df_1 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Pearson Correlation", header=0,
+                    index_col=0)
 
                 fig1, ax1 = plt.subplots()
                 sns.heatmap(df_1, annot=False, cmap="Blues", ax=ax1, xticklabels=False, yticklabels=False)
@@ -346,10 +344,10 @@
             </div>
 
             <br><br>
-            <b>Spearman's correlation matrix</b> measures instead the strength and direction of a
-            monotonic relationship between two variables. Pearson's correlation coefficient does not assume linearity
-            between the variables, nor does it assume that the data is normally distributed, which is particularly
-            helpful if there are exponential, logarithmic or even polynomial relationships between two variables.
+            Die <b>Spearman-Korrelationsmatrix</b> misst hingegen die Stärke und Richtung einer monotonen Beziehung
+            zwischen zwei Variablen. Der Pearson-Korrelationskoeffizient geht weder von einer Linearität zwischen den
+            Variablen noch von einer Normalverteilung der Daten aus, was besonders hilfreich ist, wenn zwischen zwei
+            Variablen exponentielle, logarithmische oder sogar polynomiale Beziehungen bestehen.
             <br><br>
             <div id="spearman_heatmap">
                 <py-script>
@@ -359,7 +357,8 @@
                 import matplotlib.pyplot as plt
                 from pyscript import display
 
-                df_2 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Spearman Correlation", header=0, index_col=0)
+                df_2 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Spearman Correlation", header=0,
+                    index_col=0)
 
                 fig2, ax2 = plt.subplots()
                 sns.heatmap(df_2, annot=False, cmap="Greens", ax=ax2, xticklabels=False, yticklabels=False)
@@ -369,147 +368,381 @@
             </div>
         </section>
 
-        <h3><b>STEP 5: Feature Engineering</b><br><br>
-            For "Reverse Stepwise Regression", the goal is to remove the least significant predictor (based on p-value)
-            at each step, by fitting the complete dataset into a model to the data, evaluate its performance and then
-            slowly remove all predictors that have the least significance until the performance of the model reaches
-            it's peak.
+        <h3>Techniken zur Dimensionsreduktion sind selbsterklärend, aber sie sind etwas fortgeschrittener als die
+            einfache Reduzierung der Anzahl der Variablen, da dabei versehentlich die zugrunde liegende
+            Informationsstruktur der Daten verloren gehen könnte. In diesem Projekt werden zwei sich ergänzende
+            Techniken zur Dimensionsreduktion angewendet und verglichen: die Hauptkomponentenanalyse (PCA) und die
+            umgekehrte schrittweise Regression.
             <br><br>
-            On the other hand, Principal Component Analysis (PCA) is built by transforming the dataset into principal
-            components, through the use of <b>Eigendecomposition</b> which decomposes the group of dependent
-            variables into their respective eigenvectors and eigenvalues. PCA then selects the top Principal components
-            by picking out eigenvectors based on their corresponding eigenvalues.
+            Sowohl die <b>umgekehrte schrittweise Regression</b> als auch die <b>Hauptkomponentenanalyse (PCA)</b>
+            erfordern eine eingehende Analyse der Beziehungen zwischen unabhängigen Variablen, um festzustellen, welche
+            Variablen innerhalb des Datensatzes Redundanzen aufweisen. In diesem Projekt wenden wir nicht nur
+            grundlegende Pearson-Korrelationsmetriken an, sondern prüfen auch, ob zwischen den Variablen nicht lineare
+            Beziehungen bestehen, indem wir den Spearman-Rangkorrelationskoeffizienten verwenden.
             <br><br>
-            For both cases, we will have to preprocess the dataset by scaling all data equally. This is done because
-            most of the independent variables don't share the same metrics (Pressures, Temperatures, Percentages,
-            Measurements, etc.). There are many different scaling methods from the sklearn.preprocessing library like
-            StandardScaler, MinMaxScaler, RobustScaler, etc. that have the same goal of standardizing data.
+            Die PCA ist eine statistische Technik, die die ursprünglichen Merkmale in einen neuen Satz unkorrelierter
+            Komponenten umwandelt, die nach ihrer Fähigkeit, die Varianz in den Daten zu erklären, geordnet sind. Sie
+            ist besonders nützlich, wenn versucht wird, Informationen zu erhalten und gleichzeitig die Anzahl der
+            Eingabedimensionen für die Modellierung zu reduzieren. Die kumulative erklärte Varianz wird visualisiert,
+            um die optimale Anzahl von Komponenten zu bestimmen, die erforderlich sind, um den größten Teil der
+            Informationen zu erhalten. Diese Komponenten werden dann zum Trainieren eines verallgemeinerten additiven
+            Modells (GAM) verwendet.
+            <br><br>
+            Die umgekehrte schrittweise Regression hingegen ist eine Methode zur Merkmalsauswahl, bei der Variablen auf
+            der Grundlage ihrer statistischen Signifikanz (p-Werte) iterativ aus einem multivariaten Regressionsmodell
+            entfernt werden. Bei diesem Ansatz werden nur diejenigen Prädiktoren beibehalten, die einen bedeutenden
+            Beitrag zur Zielvariablen leisten, wodurch ein besser interpretierbares Modell in Bezug auf die
+            tatsächlichen Variablennamen anstelle von abstrakten Komponenten entsteht.
+            <br><br>
+            <b>Hinweis:</b> Die umgekehrte schrittweise Regression und die PCA helfen dabei, zu verstehen, welche
+            Variablen den größten Einfluss auf die Abfallerzeugung haben, indem sie die Variablen isolieren, die am
+            meisten für Qualitätsschwankungen und Abfallbildung verantwortlich sind <b>(Qualitätskontrolle)</b>, und
+            ermöglichen die Erstellung genauerer Modelle, die das Abfallaufkommen und die Qualitätsmerkmale des
+            Endprodukts vorhersagen <b>(Qualitätsvorhersage)</b>.
+        </h3>
+
+        <h3>Das Projekt verwendet zwei verschiedene Techniken zur Dimensionsreduktion, um die Schwächen beider
+            Verfahren auszugleichen. Bei der „Reverse Stepwise Regression” besteht das Ziel darin, bei jedem Schritt
+            den am wenigsten signifikanten Prädiktor (basierend auf dem p-Wert) zu entfernen, indem der gesamte
+            Datensatz in ein Modell für die Daten eingepasst wird, dessen Leistung bewertet wird und dann nach und nach
+            alle Prädiktoren mit der geringsten Signifikanz entfernt werden, bis die Leistung des Modells ihren
+            Höhepunkt erreicht hat.
+            <br><br>
+            Die Hauptkomponentenanalyse (PCA) hingegen basiert auf der Umwandlung des Datensatzes in Hauptkomponenten
+            durch die Verwendung der <b>Eigenzerlegung</b>, die die Gruppe der abhängigen Variablen in ihre jeweiligen
+            Eigenvektoren und Eigenwerte zerlegt. Die PCA wählt dann die wichtigsten Hauptkomponenten aus, indem sie
+            Eigenvektoren auf der Grundlage ihrer entsprechenden Eigenwerte auswählt.
+            <br><br>
+            Leider geht die PCA auf Kosten der <b>Interpretierbarkeit</b>, da diese Komponenten lineare Kombinationen
+            der ursprünglichen Merkmale sind. Die umgekehrte schrittweise Regression hingegen behält die tatsächlichen
+            Merkmalsnamen bei und bietet Transparenz darüber, welche Variablen für die Abfallerzeugung und
+            Produktqualität am wichtigsten sind. Das bedeutet, dass sowohl die Ergebnisse der PCA als auch die
+            Ergebnisse der umgekehrten schrittweisen Regression für das Training des Prognosemodells verwendet werden
+            könnten.
+
+        </h3>
+
+        <h3><b>SCHRITT 5: Entwicklung von Merkmalen</b><br><br>
+            In beiden Fällen müssen wir den Datensatz vorverarbeiten, indem wir alle Daten gleich skalieren. Dies
+            geschieht, weil die meisten unabhängigen Variablen nicht dieselben Metriken haben (Drücke, Temperaturen,
+            Prozentsätze, Messungen usw.). Es gibt viele verschiedene Skalierungsmethoden aus der Bibliothek
+            sklearn.preprocessing, wie StandardScaler, MinMaxScaler, RobustScaler usw., die alle das gleiche Ziel
+            haben, nämlich die Standardisierung der Daten.
+            <br><br>
+            Die Standardisierung stellt sicher, dass alle Variablen gleichermaßen zum Modelltraining und zur
+            Komponentengenerierung beitragen. In diesem Projekt wird MinMaxScaler ausgewählt, nachdem sowohl der
+            Shapiro-Wilk-Test als auch der Kolmogorov-Smirnov-Test auf Normativität angewendet wurden und bestätigt
+            wurde, dass die meisten Variablen KEINER Normalverteilung folgen. Dies eignet sich besonders gut für die
+            Vorbereitung industrieller Prozessdaten für die nachgelagerte Modellierung, da MinMaxScaler eine lineare
+            Skalierung auf einen festen Bereich (-1 bis 1) verwendet und dabei die ursprüngliche Form aller
+            nicht-normalen Verteilungen beibehält.
+            <br><br>
+            Nach der Skalierung werden die Daten durch ein PCA-Transformer-Objekt geleitet, um die Mindestanzahl an
+            Komponenten zu ermitteln, die erforderlich ist, um den größten Teil der Varianz des Datensatzes
+            beizubehalten und gleichzeitig die Mindestanzahl an Variablen für die Regression beizubehalten.
         </h3>
 
         <section class="sample_code">
             <b># Python CODE: MinMaxScaling<br>
-            After applying both "Shapiro-Wilk" and "Kolmogorov-Smirnov" tests for normality and goodness of fit. We can
-            determine that none of the independent variables follow a normal distribution which pushes us to use the
-            MinMaxScaler as it's particularly effective when the data is not normally distributed, by applying a
-            scaling method that doesn't assume any distribution and scales the data to a range of [-1, 1], preserving
-            the original non-normal distribution.<br>
-            Note: MinMaxScaler applies a uniform scaling by subtracting the minimum value and dividing by the range of
-            the dataset.</b><br>
+            Nach Anwendung der beiden Tests „Shapiro-Wilk” und „Kolmogorov-Smirnov” zur Überprüfung der
+            Normalverteilung und der Anpassungsgüte. können wir feststellen, dass keine der unabhängigen Variablen
+            einer Normalverteilung folgt, was uns dazu veranlasst, den MinMaxScaler zu verwenden, da dieser besonders
+            effektiv ist, wenn die Daten nicht normalverteilt sind. Dabei wird eine Skalierungsmethode angewendet, die
+            keine Verteilung voraussetzt und die Daten auf einen Bereich von [-1, 1] skaliert, wobei die ursprüngliche
+            nicht normale Verteilung beibehalten wird.<br><br>
+            Hinweis: MinMaxScaler wendet eine einheitliche Skalierung an, indem er den Minimalwert subtrahiert und
+            durch den Bereich des Datensatzes dividiert.</b><br>
+
             <br>from sklearn.preprocessing import MinMaxScaler
             <br>scaler = MinMaxScaler()
             <br>independent_variables = final_variables.iloc[:, 1:].copy()
             <br>independent_variables.columns = independent_variables.columns.astype(str)
             <br>independent_variables = scaler.fit_transform(independent_variables)<br><br>
+
             <b># Python CODE: Principal Component Analysis (PCA)<br>
-            In scikit-learn, PCA is implemented as a transformer object that learns components in its fit() function,
-            which computes the covariance matrix, handles the eigendecomposition on the covariance matrix and then
-            generates the principal components.</b><br>
+            In scikit-learn wird PCA als Transformer-Objekt implementiert, das Komponenten in seiner fit()-Funktion
+            lernt, die die Kovarianzmatrix berechnet, die Eigenzerlegung der Kovarianzmatrix durchführt und
+            anschließend die Hauptkomponenten generiert.</b><br>
             <br>from sklearn.decomposition import PCA
             <br>pca_dri = PCA()
             <br>pca_dri.fit(independent_variables)
             <br>principal_components = pca_dri.transform(independent_variables)
             <br>selected_components = principal_components[:, :6]
-            <br><br><b>The PCA components will be later fed into a General Additive Model (GAM) regression model that
-            will consider the complexity of the relationships between the independent and dependent variables, as well
-            as offer an in-depth statistical analysis of the entire process.</b>
+            <br><br><b>Die PCA-Komponenten werden später in ein Regressionsmodell des Typs General Additive Model (GAM)
+            eingespeist, das die Komplexität der Beziehungen zwischen den unabhängigen und abhängigen Variablen
+            berücksichtigt und eine eingehende statistische Analyse des gesamten Prozesses bietet.</b>
         </section>
 
-        <h3>Thanks to the explained_variance_ratio_ function within sklearn.decomposition we can measure the percentages
-            of variance explained by each of generated principal components. By calculating the accumulated sum of the
-            ratios we can determine that the total variance of the first 6 PCA components reach a variance of 92.39%.
-            (If we handle 5 Components the percentage is 87.97% and if we handle 7 PCA components the variance reaches
-            93.61%)<br><br>
-            <b>Note:</b> If we use 14 or more components, the explained_variance_ratio_ is 1.0 indicating that we’ve
-            captured 100% of the variance in the dataset.
+        <h3>Dank der Funktion „explained_variance_ratio_“ in sklearn.decomposition können wir den Prozentsatz der
+            Varianz messen, der durch jede der generierten Hauptkomponenten erklärt wird. Durch Berechnung der
+            kumulierten Summe der Verhältnisse können wir feststellen, dass die Gesamtvarianz der ersten 6
+            PCA-Komponenten eine Varianz von 92,39 % erreicht. (Bei 5 Komponenten beträgt der Prozentsatz 87,97 % und
+            bei 7 PCA-Komponenten erreicht die Varianz 93,61 %.)
+            <br><br>
+            <b>Hinweis:</b> Bei Verwendung von 14 oder mehr Komponenten beträgt die explained_variance_ratio_ 1,0,
+            was bedeutet, dass wir 100 % der Varianz im Datensatz erfasst haben.
+            <br><br>
+            Die Merkmalsauswahl aus der umgekehrten schrittweisen Regression kann als nützliche Überprüfung der
+            Ergebnisse aus der PCA dienen. Während die PCA Muster allein auf der Grundlage der Varianz identifiziert,
+            wählt die schrittweise Regression Merkmale auf der Grundlage ihrer Vorhersagekraft aus. Wenn dieselben
+            Variablen in beiden Methoden als wichtig erscheinen, erhöht dies die Zuversicht, dass diese Merkmale
+            tatsächlich Einfluss auf den Prozess haben und nicht nur statistisches Rauschen sind.
+            <br><br>
+            Durch die kombinierte Verwendung von PCA und Reverse Stepwise Regression können wir die Dimensionalität
+            reduzieren und gleichzeitig die Interpretierbarkeit des Modells erhalten. PCA hilft dabei, den Datensatz zu
+            vereinfachen und Multikollinearität zu bewältigen, während die schrittweise Regression die spezifischen
+            Variablen hervorhebt, die für die Vorhersage der Ergebnisse am wichtigsten sind. Dieser kombinierte Ansatz
+            stärkt die Zuverlässigkeit des Modells und stellt sicher, dass es den zugrunde liegenden Produktionsprozess
+            widerspiegelt.
+        </h3>
+
+        <h3>Ohne Skalierung würde die PCA irreführende Hauptkomponenten liefern und die Interpretierbarkeit und
+            Leistung Ihres nachfolgenden GAM-Modells beeinträchtigen. Wenn Variablen sehr unterschiedliche Bereiche
+            haben, können kleine Fehler in Variablen mit größeren Werten das Ergebnis unverhältnismäßig stark
+            beeinflussen. Die Skalierung mildert dies, indem sie alle Variablen auf eine vergleichbare Basis stellt.
+            Dies ist besonders wichtig in multikollinearen Systemen – wie Ihrem –, in denen geringfügige
+            Ungleichgewichte in der Skalierung Beziehungen verschleiern oder übertreiben können.
         </h3>
 
         <video id="video_1" controls autoplay loop muted>
             <source src="videos/project_drei.mp4" type="video/mp4">
         </video>
 
-        <h3><b>STEP 6: Model Building and Training</b><br><br>
-            As mentioned before, the General Additive Model (GAM) regression model serves as a way to
-            estimate the relationships between the dependent variables of the DR process and the independent variables
-            that represent the qualities of the output obtained by the process. GAM is a generalized linear model which
-            formulates a linear response depending on multiple smooth functions (which for the case of this problem are
-            splines).
+        <h3><b>SCHRITT 6: Aufbau von Modellen</b><br><br>
+            Wie bereits erwähnt, wird das Generalized Additive Model (GAM) verwendet, um die Beziehung zwischen den
+            Ausgangsvariablen  und den unabhängigen Variablen, also den Rohstoffen und dem DRI-Prozess, zu schätzen.
+            GAM dient als Erweiterung linearer Modelle, die nichtlineare Effekte durch die Anwendung von
+            Glättungsfunktionen auf jeden der PCA-Prädiktoren berücksichtigen.
             <br><br>
-            When combined with PCA, GAM can efficiently handle high-dimensional data by using the principal components
-            as input features which are then adapted into individual smoothing splines (regression splines involve
-            dividing the range of the PCA component into <b>K</b> distinct regions where a polynomial function is then
-            applied.
+            Jede PCA-Komponente wird in GAM eingeführt und dann mithilfe von „Splines” durch die Glättungsfunktion
+            transformiert. Splines sind glatte, flexible mathematische Funktionen, die zur Modellierung nichtlinearer
+            Beziehungen zwischen Variablen verwendet werden.
+            <br><br>
+            Da die PCA-Komponenten Eigenwerte enthalten, die die Relevanz für die Ausgangsvariablen messen, indem sie
+            die Varianz jeder Komponente erfassen. Es werden nur Komponenten beibehalten, die nicht miteinander
+            korrelieren (orthogonal) und große Eigenwerte aufweisen (mehr Informationen enthalten).
+        </h3>
+
+        <h3>Nachdem die Hauptkomponenten (PC) durch die Spleißfunktionen transformiert wurden, nimmt die GAM-Struktur
+            die folgende Form an:<br>
+            <code>s(0) + s(1) + ... + s(5)</code>, wobei <code>s(i)</code> eine Spline-Funktion ist, die auf die i-te
+            Hauptkomponente angewendet wird.
+            <br><br>
+            Die 9 abhängigen (Ausgangs-)Variablen verwenden denselben Satz von PCA-abgeleiteten Merkmalen, um die
+            Interpretierbarkeit der Daten zu verbessern, indem sie die Prognosewerte des Modells analysieren und eine
+            gezielte Bewertung ermöglichen, wie jede Ausgangsvariable durch die latente Struktur der Rohstoff- und
+            Prozessdaten beeinflusst wird.
+            <br><br>
+            Um die Leistung jedes Modells zu bewerten, werden Streudiagramme verwendet, um die vorhergesagten Werte mit
+            den tatsächlich beobachteten Werten zu vergleichen.
         </h3>
 
         <img src="bilder/project_drei4.png" alt="Project Scatter Graph 1">
 
+        <h3>Diese Diagramme enthalten eine glatte Vorhersagekurve, die über die Streuung der tatsächlichen Werte gelegt
+            wird, wodurch sowohl die Modellanpassung als auch die Restvarianz visualisiert werden können. Die erste
+            Hauptkomponente ist für die Visualisierung besonders nützlich, da sie in der Regel die größte Varianzquelle
+            in den Eingabedaten erfasst und somit ein aussagekräftiger Indikator für das vorherrschende
+            Prozessverhalten ist.
+            <br><br>
+            Nach der Erstellung des GAM-Modells unter Verwendung von PCA-transformierten Eingaben besteht der nächste
+            Schritt darin, den Modellierungsprozess unter Verwendung der umgekehrten schrittweisen Regression zu
+            wiederholen. Diese Technik hilft dabei, die relevantesten ursprünglichen Merkmale anstelle der
+            transformierten Merkmale zu identifizieren, wodurch die Erkenntnisse des Modells direkt mit den
+            physikalischen Variablen aus den Rohstoff- oder DRI-Prozessdaten verknüpft werden.
+        </h3>
+
+        <h3>Unter Verwendung der statsmodels-Bibliothek beginnt die inverse schrittweise Regression mit allen im Modell
+            enthaltenen Variablen. Die Variable mit dem höchsten p-Wert (was auf die geringste statistische Signifikanz
+            hinweist) wird entfernt, und das Modell wird neu angepasst. Diese iterative Eliminierung wird fortgesetzt,
+            bis nur noch die 6 statistisch signifikantesten Variablen übrig bleiben. Diese ausgewählten Merkmale werden
+            dann als Eingaben für ein zweites GAM-Modell verwendet, das derselben splinebasierten Struktur folgt wie
+            das aus der PCA abgeleitete Modell.
+            <br><br>
+            Durch den Vergleich der Leistung und Interpretierbarkeit beider Modelle – eines basierend auf
+            PCA-Komponenten, das andere auf statistisch ausgewählten Rohmerkmalen – können wir die Kompromisse zwischen
+            Dimensionsreduktion und Variablentransparenz bewerten. Das PCA-basierte Modell bietet möglicherweise eine
+            gleichmäßigere Leistung und weniger Rauschen, während das schrittweise Modell klarere Verbindungen zu
+            bestimmten Prozessparametern herstellt, was für technische Erkenntnisse und Entscheidungsfindungen wertvoll
+            ist.
+        </h3>
+
         <img src="bilder/project_drei5.png" alt="Project Scatter Graph 2">
 
-        <h3>The GAM model for this project adapts the following form s(0) + s(1) + ... + s(5), where all 6 main PCA
-            components are molded into smoothing splines. The GAM model is then adapted to handle all 9 dependent
-            variables that represent the Direct Iron Ore that is generated by the manufacturing process. This is done by
-            fitting a separate GAM model for each target variable using the selected principal components as input.
+        <h3>Diese Logik wird besser in den beiden Grafiken dargestellt, die als Visualisierung der Modelldiagnose aus
+            den Vorhersagen des Generalized Additive Model (GAM) dienen. Beide Grafiken stellen die Beziehung zwischen
+            zwei verschiedenen Zielvariablen mit derselben Hauptkomponente dar. (Dies ist die erste Hauptkomponente
+            innerhalb des GAM)
             <br><br>
-            For this reason, are scatter plots the best option for visually comparing the actual observed values
-            (represented by the scatter points) with the predicted values generated by the GAM model (represented by
-            the line plot). This comparison helps in evaluating how well the model fits the data and captures the
-            underlying patterns.
+            Die erste Grafik zeigt die Beziehung zwischen der erzeugten Schlacke (eine Art Abfall aus dem DR-Prozess)
+            und der ersten Hauptkomponente. Die schwarze Linie stellt die Prognosewerte des Modells dar, die eine
+            starke negative Korrelation aufweisen: Mit zunehmender erster Hauptkomponente nimmt die Schlacke
+            tendenziell ab.
+            <br><br>
+            Die zweite Grafik hingegen zeigt die Beziehung zwischen dem DRI-Pellet-Anteil (der die Gesamtqualität des
+            endgültigen Pelletprodukts darstellt) und der ersten Hauptkomponente. Im Gegensatz zur ersten Grafik zeigt
+            die zweite Grafik jedoch, dass zwischen beiden Elementen keine starke Beziehung besteht.
         </h3>
 
-        <h3><b>NOTE:</b> By comparing the values of the first Principal Component, we can capture the most significant
-            patterns or variations in the data between the main patterns in the data and the target variable.
+        <h3><b>SCHRITT 7: Modelltraining und -bewertung</b><br><br>
+            Um die Vorhersagegenauigkeit und Verallgemeinerbarkeit beider Modellierungsansätze – PCA-basierte GAM und
+            Reverse Stepwise Regression-basierte GAM – zu bewerten, wurde eine Reihe von Diagnosemetriken verwendet:
+            Generalized Cross-Validation (GCV), Akaike Information Criterion (AIC) und Pseudo R-squared. Diese Metriken
+            ermöglichen die Bewertung, wie gut jedes Modell zu den Daten passt, aber auch, wie gut es bei unbekannten
+            Eingaben voraussichtlich abschneiden wird.
             <br><br>
-            Now that the <b>(Quality prediction)</b> model is complete, it's time to use the Reverse Stepwise Regression
-            in order to determine the main 6 variables that will later be used for the same structured GAM model made
-            for the Principal Components.
-            <br><br>
-            This can be done with the statsmodel library, which applies regression by fitting all of the variables and
-            then measuring their respective p-values. Once the p-values have been calculated, the variable with the
-            lowest p-value is then removed and the process starts all over again.
+            Der GCV-Wert ist eine Methode zur Schätzung des Vorhersagefehlers eines Modells, insbesondere in
+            Situationen, in denen Regularisierungstechniken wie Ridge-Regression zum Einsatz kommen. Es handelt sich
+            dabei um eine bestrafte Fehlermetrik, die die Modellkomplexität zwischen zwei verschiedenen Modellen
+            berücksichtigt. GCV bietet eine Möglichkeit, die Vorhersageleistung eines Modells zu bewerten und seine
+            Parameter zu optimieren.
         </h3>
 
-        <h3><b>STEP 7: Model Evaluation and Comparison</b><br><br>
-            The GCV values indicate a notable difference in predictive error, with the PCA model achieving a minimal
-            value of 0.0001, suggesting an extremely low prediction error. In contrast, the Reverse Stepwise Regression
-            model shows a GCV of 0.0, which might imply overfitting.
+        <h3>Das PCA-basierte GAM erreichte einen GCV von 0,0001, was auf einen minimalen Vorhersagefehler und eine
+            reibungslose Verallgemeinerung auf neue Daten hindeutet. Das Reverse Stepwise Regression-Modell hingegen
+            lieferte einen GCV von 0,0, was zwar optimal erscheint, aber tatsächlich eine Überanpassung widerspiegeln
+            könnte, bei der das Modell zu perfekt zu den Trainingsdaten passt und möglicherweise nicht gut
+            verallgemeinert werden kann.
             <br><br>
-            When examining the AIC values and Pseudo R-Squared values, PCA model achieves a better balance of fit and
-            complexity by showing a significantly lower AIC and achieves a Pseudo R-Squared of 0.3382, suggesting that
-            about 33.82% of the variability in the outcome can be explained by this model. Conversely, the Reverse
-            Stepwise Regression model boasts a much higher Pseudo R-Squared of 0.8252.
+            Das bedeutet, dass das Modell, um mit neuen Daten zu funktionieren, neue Trainings-Test-Aufteilungen oder
+            Kreuzvalidierungen benötigt, um sicherzustellen, dass das Modell gut generalisiert und nicht übermäßig an
+            bestimmte Muster im Trainingssatz angepasst ist.
             <br><br>
-            In conclusion, while the Reverse Stepwise Regression model excels in explanatory power as reflected by its
-            high Pseudo R-Squared value, the PCA model demonstrates better overall performance when considering the
-            balance of prediction accuracy and model simplicity, as indicated by its lower AIC.
+            Das Akaike-Informationskriterium (AIC) ist ein statistisches Maß, das zur Bewertung der relativen Qualität
+            der beiden verschiedenen GAMs verwendet wird. Es wägt die Bedeutung zwischen Modellanpassung
+            (Wahrscheinlichkeit) und Modellkomplexität (Anzahl der Parameter) ab, um Überanpassung und schlechte
+            Leistung bei neuen Daten zu vermeiden. Niedrigere AIC-Werte weisen im Allgemeinen auf ein besser
+            angepasstes und sparsameres Modell hin.
         </h3>
 
-        <h3><b>STEP 8: Model Refinement</b><br><br>
-            By comparing the result of the GAM models that use PCA with the models that use only the statistically
-            relevant variables obtained from the Reverse Stepwise Reduction technique, we can see that even though both
-            are mathematical techniques specialized for dimension reduction, there is considerably more value lost in
-            one technique than the other.
+        <h3>Ähnlich wie der GCV-Wert bestraft das AIC Modelle mit mehr Parametern und verhindert so übermäßig komplexe
+            Modelle, die zu einer Überanpassung der Daten führen könnten. Die Messung des AIC in beiden Modellen zeigt,
+            dass das PCA-Modell ein deutlich niedrigeres AIC aufweist. Dies stützt die Annahme, dass das PCA-basierte
+            Modell trotz der abstrakten Erstellung von Hauptkomponenten eine starke Vorhersagekraft erreicht und
+            gleichzeitig unnötige Komplexität vermeidet.
             <br><br>
-            Some aspects that we have to value from the PCA models are their inherent ability to enhance the performance
-            of the GAM models in a way where there is no value lost that would otherwise be discarded from the reverse
-            stepwise regression technique.
+            In diesem Projekt ist eine der wichtigsten Kennzahlen zur Bewertung der Modellleistung das R-Quadrat (R²),
+            auch bekannt als Bestimmtheitsmaß. R² misst, wie gut ein Modell die Variabilität der Zielvariablen auf der
+            Grundlage der Eingaben erklärt. Ein R² von 0,82 bedeutet beispielsweise, dass 82 % der Variation einer
+            DRI-Qualitätskennzahl (wie Schlackengehalt oder Pelletgröße) durch die Prädiktoren des Modells erklärt
+            werden.
             <br><br>
-            At the end of the day, even though one model offers a better fit than the other, we should always consider
-            the computational costs that arise when handling with large quantities of features (which is extremely
-            common in a manufacturing process).
+            Bei der Anwendung auf verallgemeinerte additive Modelle (GAMs) bezeichnen wir diese Metrik als
+            Pseudo-R-Quadrat, da GAMs glättende Splines und eine bestrafte Wahrscheinlichkeitsschätzung verwenden, die
+            sich von der traditionellen linearen Regression unterscheiden. In diesem Zusammenhang wird Pseudo-R² als
+            Anteil der durch das Modell reduzierten Abweichung berechnet und bietet eine ähnliche Interpretation: Je
+            höher der Wert, desto besser passt das Modell zu den Daten.
         </h3>
 
-        <h3><b>Conclusion:</b><br>
-            The use of GAM models in manufacturing processes like Direct Reduction could bring plenty of value in the
-            reduction of waste (Quality Control) and the forecasting of end results (Quality Prediction), thanks to the
-            insights obtained from the analysis of PRINCIPAL COMPONENTS and/or STATISTICALLY RELEVANT variables.
+        <h3>Das PCA-basierte GAM-Modell erreichte einen Pseudo-R²-Wert von 0,3382, was bedeutet, dass etwa 33,82 % der
+            Variabilität im Ergebnis allein mit den sechs wichtigsten Hauptkomponenten erklärt werden konnten. Dies mag
+            zwar moderat erscheinen, spiegelt jedoch ein Modell wider, das Generalisierung und Robustheit in Einklang
+            bringt. Im Gegensatz dazu erreichte das Reverse Stepwise Regression-Modell einen viel höheren
+            Pseudo-R²-Wert von 0,8252, was eine starke Erklärungskraft zeigt, aber auch auf ein höheres Risiko der
+            Überanpassung hindeutet – insbesondere in Verbindung mit einem ungewöhnlich niedrigen GCV-Wert.
             <br><br>
-            This insight facilitates root cause analysis and enables targeted interventions to improve the performance
-            of the process and the quality of it's final product. All thanks to the examination of the estimated
-            coefficients and smooth functions in the GAM model, manufacturers can pinpoint which variables have the
-            most significant impact on product quality and how they interact with one another.
+            Diese Abweichung wirft einen wichtigen Kompromiss auf. Das Reverse-Stepwise-Modell weist zwar eine stärkere
+            Erklärungskraft auf, jedoch möglicherweise auf Kosten der Verallgemeinerbarkeit, wie der GCV nahelegt. Das
+            PCA-Modell scheint durch die Reduzierung von Rauschen und Redundanz mittels Dimensionsreduktion ein
+            besseres Gleichgewicht zwischen Vorhersageleistung und Modellstabilität zu erzielen.
+        </h3>
+
+        <h3><b>SCHRITT 8: Modellverbesserung</b><br><br>
+            Durch die Bewertung beider GAMs. Einer verwendete PCA-Komponenten. Der andere verwendete statistisch
+            ausgewählte Merkmale aus der Reverse Stepwise Regression. Es wurde deutlich, dass beide Ansätze als
+            Werkzeuge zur Dimensionsreduktion dienen. Sie unterscheiden sich jedoch erheblich in Bezug auf
+            Informationserhalt, Modellkomplexität und Interpretierbarkeit.
+            <br><br>
+            Eine wesentliche Stärke des PCA-basierten Modells ist seine Fähigkeit, nahezu die gesamte ursprüngliche
+            Varianz zu erhalten (z. B. werden 92,39 % durch sechs Komponenten erfasst), ohne zu überanpassen. Dies
+            ermöglicht dem generalisierten additiven Modell (GAM) eine gute Verallgemeinerung, wodurch Rauschen und
+            Multikollinearität reduziert werden, während die Vorhersagekraft erhalten bleibt. Dies ist besonders
+            wertvoll bei der Verarbeitung hochdimensionaler Daten, wie sie in industriellen Sensornetzwerken und bei
+            der Überwachung chemischer Prozesse üblich sind.
+        </h3>
+
+        <h3>Allerdings transformiert die PCA die Variablen in latente Komponenten, was eine direkte Interpretation
+            erschweren kann. Im Gegensatz zu Rohdaten wie Reagenzfluss oder Druckwerten entsprechen Hauptkomponenten
+            nicht einzelnen physikalischen Größen. Diese mangelnde Interpretierbarkeit kann ihre Nützlichkeit bei der
+            Prozessdiagnostik und bei Korrekturmaßnahmen einschränken, bei denen Fachleute oft die genaue Variable
+            kennen müssen, die angepasst werden muss.
+            <br><br>
+            Neben dem Vergleich der Methoden sollte bei der Modellverfeinerung auch die Skalierbarkeit und das
+            Einsatzpotenzial berücksichtigt werden. In Echtzeit-Fertigungssystemen müssen Modelle effizient und robust
+            genug sein, um Sensorrauschen zu widerstehen und sich an Prozessabweichungen anzupassen. In diesem
+            Zusammenhang bieten PCA-basierte Modelle eine günstige Balance, indem sie den Merkmalsraum vereinfachen,
+            die Laufzeitleistung verbessern und Widerstandsfähigkeit gegenüber Schwankungen einzelner Sensorwerte
+            bieten.
+            <br><br>
+            Es können mehrere Verfeinerungsstrategien eingeführt werden, um die Modellleistung, Zuverlässigkeit und
+            Benutzerfreundlichkeit in realen Fertigungsumgebungen weiter zu verbessern. Beispielsweise verwendet das
+            aktuelle Modell Standard-Lambda-Werte. Die manuelle oder automatisierte Kreuzvalidierung zur Optimierung
+            von Lambda für jede Variable könnte das endgültige Modell verbessern. Dieser Prozess passt die Flexibilität
+            jeder Spline an, um das optimale Gleichgewicht zwischen der Erfassung wichtiger Trends und der Vermeidung
+            von Rauschen zu finden.
+        </h3>
+
+        <h3>Ein weiterer wichtiger Bereich für zukünftige Verbesserungen ist die Integration von
+            Residualanalyseverfahren in den Workflow zur Modellbewertung und -verfeinerung. Durch die systematische
+            Analyse von Residualmustern lässt sich feststellen, ob bestimmte Zusammenhänge übersehen wurden, ob
+            nichtlineare Effekte unzureichend erfasst wurden oder ob das Modell unter bestimmten Prozessbedingungen
+            durchweg zu hohe oder zu niedrige Vorhersagen liefert.
+            <br><br>
+            Die Einbeziehung dieser Techniken verbessert nicht nur die Vorhersagegenauigkeit, sondern stärkt auch die
+            Zuverlässigkeit und Transparenz des Modells, wodurch es einfacher in realen Produktionsumgebungen
+            eingesetzt werden kann. In industriellen Anwendungen, in denen Entscheidungen auf der Grundlage von
+            Modellergebnissen Auswirkungen auf Kosten, Sicherheit und Produktqualität haben können, sind Konsistenz und
+            Interpretierbarkeit ebenso wichtig wie die Leistung.
+            <br><br>
+            Aus diesem Grund ist die Modellverfeinerung ein wesentlicher Schritt in jedem Projekt im Bereich
+            maschinelles Lernen oder statistische Modellierung. Sie bietet eine strukturierte Möglichkeit, die
+            Ergebnisse durch technische Anpassungen – wie Hyperparameter-Tuning, diagnostische Analyse oder
+            Regularisierung – zu verbessern, ohne die Gesamtstruktur oder das Ziel des Modells zu verwerfen. Diese
+            Verfeinerungen können oft zu erheblichen Verbesserungen der Leistung und Benutzerfreundlichkeit führen,
+            wodurch das Modell widerstandsfähiger, effizienter und besser auf die betrieblichen Anforderungen
+            abgestimmt wird. Im Fertigungskontext führt dies direkt zu einer besseren Prozesskontrolle, weniger
+            Ausschuss und einer gleichmäßigeren Produktqualität.
+        </h3>
+
+        <h3><b>FAZIT:</b><br>
+            Dieses Projekt zeigt das Potenzial der Kombination von <b>verallgemeinerten additiven Modellen</b> mit
+            Techniken zur Dimensionsreduktion wie der <b>Hauptkomponentenanalyse</b> und der
+            <b>umgekehrten schrittweisen Regression</b> zur Verbesserung der Qualitätskontrolle und Abfallprognose im
+            Zusammenhang mit der <b>Produktion von direkt reduziertem Eisen (DRI)</b>.
+            <br><br>
+            Das GAM-Framework zeichnet sich durch seine Fähigkeit aus, nichtlineare Beziehungen zwischen Eingaben und
+            Ausgaben durch glatte Spline-Funktionen zu erfassen. Dies ist besonders wichtig in industriellen
+            Umgebungen, in denen viele Variablen auf nicht offensichtliche Weise miteinander interagieren. Die PCA
+            unterstützt diesen Modellierungsansatz, indem sie einen hochdimensionalen Merkmalsraum in einen kompakten
+            und rauschresistenten Satz von Komponenten umwandelt, was zur Verbesserung der Generalisierung und zur
+            Verringerung der Rechenkomplexität beiträgt. Gleichzeitig stellt die Reverse Stepwise Regression sicher,
+            dass die Interpretierbarkeit erhalten bleibt, indem sie die statistisch signifikantesten
+            Rohprozessvariablen identifiziert und so direkte Verbindungen zwischen dem Modellverhalten und dem
+            technischen Wissen herstellt.
+        </h3>
+
+        <h3>Diese Modelle ermöglichen nicht nur eine genaue Vorhersage wichtiger Qualitätsindikatoren (z. B.
+            Schlackengehalt, Porosität, Metallisierung), sondern unterstützen auch die Ursachenanalyse, indem sie
+            aufzeigen, welche Prozessbedingungen die Qualität des Endprodukts am stärksten beeinflussen. Die
+            Untersuchung von <b>glatten Spline-Funktionen</b> und <b>Koeffizientenübersichten</b> ermöglicht es
+            Ingenieuren, einflussreiche Parameter zu identifizieren und deren Wechselwirkungen zu verstehen – und
+            liefert so umsetzbare Erkenntnisse zur Verbesserung von Effizienz und Nachhaltigkeit.
+            <br><br>
+            Darüber hinaus schafft dieses Projekt eine Blaupause für datengestützte Entscheidungen in
+            Fertigungsumgebungen. Es zeigt, wie prädiktive Modellierung über die Überwachung hinausgehen kann, um
+            Frühwarnungen zu unterstützen, die Ressourcennutzung zu optimieren und das Abfallaufkommen zu reduzieren.
+            Die Interpretierbarkeit und Flexibilität von GAMs machen sie besonders geeignet für den Einsatz in
+            Echtzeit-Steuerungssystemen, wo sowohl Transparenz als auch Anpassungsfähigkeit erforderlich sind.
+            <br><br>
+            Zusammenfassend lässt sich sagen, dass die Integration datengestützter Modelle wie GAM in industrielle
+            Systeme die traditionelle Prozessüberwachung in einen proaktiven und prädiktiven Rahmen verwandeln kann,
+            der Abfall reduziert, die Ausgabequalität verbessert und datengestützte Entscheidungen in großem Maßstab
+            unterstützt. Dieser Rahmen ist besonders leistungsfähig in datenreichen Umgebungen, in denen komplexe
+            Prozessdynamiken nicht mehr allein durch manuelle Steuerung und statische Regeln vollständig verwaltet
+            werden können.
         </h3>
     </div>
 </section>
-
 
   <footer>
     <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>

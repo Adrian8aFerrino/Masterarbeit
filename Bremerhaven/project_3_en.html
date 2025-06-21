@@ -278,37 +278,29 @@
         </h3>
 
         <h3><b>STEP 4: Data Exploration and Visualization</b><br><br>
-            Now that the data from all sources are completely aligned it is time to apply data exploration and
-            visualization techniques in order to understand the data's characteristics, uncover potential patterns, and
-            make informed decisions about which variables are relevant for the modeling phase.
+            With all datasets temporally aligned and merged into a unified structure, we can now proceed with the data
+            exploration and visualization step that involves a number of statistical and visualization techniques that
+            serve in understanding the statistical characteristics of the all of the aforementioned variables and
+            uncovering relationships, identifying trends and anomalies, as well as preparing for informed variable
+            selection in the modeling phase.
             <br><br>
-            Due to the fact that we are handling a great number of independent variables (52) it is important for us to
-            first examine dimensionality problems that might surface when building our model. This is done because
-            <b>Dimensionality reduction</b> improves the interpretability, stability, computational efficiency and
-            performance of statistical models and forecasting algorithms.
+            Given the high number of independent variables that are within the newly structured dataset (52 independent
+            variables) it is logical to say that the model could face issues related to high dimensionality. High
+            dimensionality datasets pose several challenges: they can lead to overfitting, increase of computacional
+            strains, and unnecessary model complexity which can hamper the interpretability and robustness of
+            predictive models like the one we are planning to build.
             <br><br>
-            Dimensionality problems arise when multiple variables are highly correlated, which means that they carry
-            redundant information. This redundancy can inflate the dimensionality of the dataset without providing new
-            insights. Within this project, we will try out two different methods of dimensionality reduction and compare
-            the performance of the model, as a way to objectively compare which method offers higher value to the end
-            result.
-            <br><br>
-            The methods that we'll try out during this project will be <b>Reverse Stepwise Regression</b> and
-            <b>Principal Component Analysis (PCA)</b> which both require an in-depth analysis of the relationships
-            between independent variables as a way to determine which variables offer redundancy within the dataset.
-            In this project, we will not only apply basic Pearson correlation metrics but also prove if there are
-            non-linear relationships between the variables using Spearman's rank correlation coefficient.
-            <br><br>
-            <b>Note:</b> Reverse Stepwise Regression and PCA will help in understanding which variables impact the most
-            in waste generation <b>(Quality Control)</b> and enable the creation of more accurate models that forecast
-            the amount of waste produced <b>(Quality prediction)</b>.
+            Dimensionality problems often arise when multiple features are strongly correlated, meaning they convey
+            overlapping or redundant information. This redundancy can obscure the interpretability of statistical tests
+            for the dependent DRI product variables, and can be remedied using <b>Dimensionality reduction</b>
+            techniques. For which a correlation analysis has to be made.
         </h3>
 
         <section class="sample_code">
-            <b>Pearson's correlation matrix</b> measures the linear relationship between two continuous variables, which
-            in the case of our dataset, it is applicable to all prepared data. Pearson's correlation is commonly used
-            when analyzing relationships between variables with continuous data, assuming that the data is normally
-            distributed and that the relationship between all variables is linear.
+            <b>Pearson's correlation matrix</b> measures the linear relationship between two continuous variables,
+            which in the case of our dataset, it is applicable to all prepared data. Pearson's correlation is commonly
+            used when analyzing relationships between variables with continuous data, assuming that the data is
+            normally distributed and that the relationship between all variables is linear.
             <br><br>
             <div id="pearson_heatmap">
                 <py-script>
@@ -318,7 +310,8 @@
                 import matplotlib.pyplot as plt
                 from pyscript import display
 
-                df_1 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Pearson Correlation", header=0, index_col=0)
+                df_1 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Pearson Correlation", header=0,
+                    index_col=0)
 
                 fig1, ax1 = plt.subplots()
                 sns.heatmap(df_1, annot=False, cmap="Blues", ax=ax1, xticklabels=False, yticklabels=False)
@@ -341,7 +334,8 @@
                 import matplotlib.pyplot as plt
                 from pyscript import display
 
-                df_2 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Spearman Correlation", header=0, index_col=0)
+                df_2 = pd.read_excel('correlation_matrices.xlsx', sheet_name="Spearman Correlation", header=0,
+                    index_col=0)
 
                 fig2, ax2 = plt.subplots()
                 sns.heatmap(df_2, annot=False, cmap="Greens", ax=ax2, xticklabels=False, yticklabels=False)
@@ -351,21 +345,68 @@
             </div>
         </section>
 
-        <h3><b>STEP 5: Feature Engineering</b><br><br>
-            For "Reverse Stepwise Regression", the goal is to remove the least significant predictor (based on p-value)
-            at each step, by fitting the complete dataset into a model to the data, evaluate its performance and then
-            slowly remove all predictors that have the least significance until the performance of the model reaches
-            it's peak.
+        <h3>Dimensionality reduction techniques are self-explanatory but they are a bit more advanced as simply
+            reducing the number of variables, as it could inadvertently lose underlying informational structure of the
+            data. In this project, two complementary dimensionality reduction techniques are applied and compared:
+            Principal Component Analysis (PCA) and Reverse Stepwise Regression.
+            <br><br>
+            <b>Reverse Stepwise Regression</b> and <b>Principal Component Analysis (PCA)</b> both require an in-depth
+            analysis of the relationships between independent variables as a way to determine which variables offer
+            redundancy within the dataset. In this project, we will not only apply basic Pearson correlation metrics
+            but also prove if there are non-linear relationships between the variables using Spearman's rank
+            correlation coefficient.
+            <br><br>
+            PCA is a statistical technique that transforms the original features into a new set of uncorrelated
+            components ranked by their ability to explain variance in the data. It is particularly useful when trying
+            to preserve information while reducing the number of input dimensions for modeling. The cumulative
+            explained variance is visualized to determine the optimal number of components needed to retain most of the
+            information, and these components are then used to train a Generalized Additive Model (GAM).
+            <br><br>
+            Reverse Stepwise Regression, on the other hand, is a feature selection method that iteratively removes
+            variables from a multivariate regression model based on statistical significance (p-values). This approach
+            retains only those predictors that contribute meaningfully to the target variable, offering a more
+            interpretable model in terms of actual variable names rather than abstract components.
+            <br><br>
+            <b>Note:</b> Reverse Stepwise Regression and PCA will help in understanding which variables impact the most
+            in waste generation by isolating variables most responsible for quality variation and waste formation
+            <b>(Quality Control)</b> and enable the creation of more accurate models that forecast waste levels and
+            final product quality characteristics <b>(Quality prediction)</b>.
+        </h3>
+
+        <h3>The project is handling two different Dimensionality reduction techniques as a way to mitigate the flaws of
+            them both. For "Reverse Stepwise Regression", the goal is to remove the least significant predictor
+            (based on p-value) at each step, by fitting the complete dataset into a model to the data, evaluate its
+            performance and then slowly remove all predictors that have the least significance until the performance of
+            the model reaches it's peak.
             <br><br>
             On the other hand, Principal Component Analysis (PCA) is built by transforming the dataset into principal
             components, through the use of <b>Eigendecomposition</b> which decomposes the group of dependent
             variables into their respective eigenvectors and eigenvalues. PCA then selects the top Principal components
             by picking out eigenvectors based on their corresponding eigenvalues.
             <br><br>
+            Unfortunately PCA comes at the cost of <b>interpretability</b> as these components are linear combinations
+            of the original features. Reverse Stepwise Regression, on the other hand, retains actual feature names and
+            provides transparency about which variables are most significant to waste generation and product quality.
+            This means that both of the results obtained from the PCA and Reverse Stepwise Regression results could be
+            used for training the forecasting model.
+        </h3>
+
+        <h3><b>STEP 5: Feature Engineering</b><br><br>
             For both cases, we will have to preprocess the dataset by scaling all data equally. This is done because
             most of the independent variables don't share the same metrics (Pressures, Temperatures, Percentages,
             Measurements, etc.). There are many different scaling methods from the sklearn.preprocessing library like
             StandardScaler, MinMaxScaler, RobustScaler, etc. that have the same goal of standardizing data.
+            <br><br>
+            Standardization ensures that variables contribute equally to model training and component generation. In
+            this project, the MinMaxScaler is selected adter applying both "Shapiro-Wilk" and "Kolmogorov-Smirnov"
+            tests for normativity and confirming that most variables DO NOT follow a normal distribution. Which is
+            particularly well-suited for preparing industrial process data for downstream modeling, as MinMaxScaler
+            utilizes linear scaling to a fixed range (-1 to 1) preserving the original shape of any of the non-normal
+            distributions.
+            <br><br>
+            Once scaled, the data is passed through a PCA transformer object in order to identify the minimum number of
+            components required to retain most of the dataset's variance while maintaining the minimum amount of
+            variables for regression.
         </h3>
 
         <section class="sample_code">
@@ -374,7 +415,7 @@
             determine that none of the independent variables follow a normal distribution which pushes us to use the
             MinMaxScaler as it's particularly effective when the data is not normally distributed, by applying a
             scaling method that doesn't assume any distribution and scales the data to a range of [-1, 1], preserving
-            the original non-normal distribution.<br>
+            the original non-normal distribution.<br><br>
             Note: MinMaxScaler applies a uniform scaling by subtracting the minimum value and dividing by the range of
             the dataset.</b><br>
             <br>from sklearn.preprocessing import MinMaxScaler
@@ -396,13 +437,32 @@
             as offer an in-depth statistical analysis of the entire process.</b>
         </section>
 
-        <h3>Thanks to the explained_variance_ratio_ function within sklearn.decomposition we can measure the percentages
-            of variance explained by each of generated principal components. By calculating the accumulated sum of the
-            ratios we can determine that the total variance of the first 6 PCA components reach a variance of 92.39%.
-            (If we handle 5 Components the percentage is 87.97% and if we handle 7 PCA components the variance reaches
-            93.61%)<br><br>
+        <h3>Thanks to the explained_variance_ratio_ function within sklearn.decomposition we can measure the
+            percentages of variance explained by each of generated principal components. By calculating the accumulated
+            sum of the ratios we can determine that the total variance of the first 6 PCA components reach a variance
+            of 92.39%. (If we handle 5 Components the percentage is 87.97% and if we handle 7 PCA components the
+            variance reaches 93.61%)
+            <br><br>
             <b>Note:</b> If we use 14 or more components, the explained_variance_ratio_ is 1.0 indicating that we’ve
             captured 100% of the variance in the dataset.
+            <br><br>
+            The feature selection from Reverse Stepwise Regression can serve as a useful check against the results from
+            PCA. While PCA identifies patterns based on variance alone, stepwise regression selects features based on
+            their predictive power. When the same variables appear as important in both methods, it adds confidence
+            that those features are genuinely influential in the process and not just statistical noise.
+            <br><br>
+            Using both PCA and Reverse Stepwise Regression together allows us to reduce dimensionality while keeping
+            the model interpretable. PCA helps simplify the dataset and manage multicollinearity, while stepwise
+            regression highlights the specific variables most responsible for predicting outcomes. This combined
+            approach strengthens the reliability of the model and ensures it reflects the underlying production
+            process.
+        </h3>
+
+        <h3>Without scaling, PCA would provide misleading principal components and reduce the interpretability and
+            performance of your GAM model that follows. Additionally, when variables have vastly different ranges,
+            small errors in larger-valued variables can disproportionately affect the outcome. Scaling mitigates this
+            by putting all variables on a comparable footing, which is particularly important in multicollinear
+            systems—like yours—where slight imbalances in scale can mask or exaggerate relationships.
         </h3>
 
         <video id="video_1" controls autoplay loop muted>
@@ -410,88 +470,219 @@
         </video>
 
         <h3><b>STEP 6: Model Building and Training</b><br><br>
-            As mentioned before, the General Additive Model (GAM) regression model serves as a way to
-            estimate the relationships between the dependent variables of the DR process and the independent variables
-            that represent the qualities of the output obtained by the process. GAM is a generalized linear model which
-            formulates a linear response depending on multiple smooth functions (which for the case of this problem are
-            splines).
+            Like we mentioned before, the Generalized Additive Model (GAM) is used to estimate the relationship between
+            the output variables  and the independent variables which is the raw materials and the DRI process. GAM
+            serves as an extension of linear models that incorporates non-linear effects by applying smoothing
+            functions to each of the PCA predictors.
             <br><br>
-            When combined with PCA, GAM can efficiently handle high-dimensional data by using the principal components
-            as input features which are then adapted into individual smoothing splines (regression splines involve
-            dividing the range of the PCA component into <b>K</b> distinct regions where a polynomial function is then
-            applied.
+            Each PCA component is introduced within GAM and then transformed through the smoothing function with the
+            use of “splines”. Splines are smooth, flexible mathematical functions used to model non-linear
+            relationships between variables.
+            <br><br>
+            Since the PCA components contain the eigenvalues which measure the relevance to the output variables by
+            measuring the variance each component captures. Keeping only components that are uncorrelated to each other
+            (orthogonal) with large eigenvalues (carry more information).
+        </h3>
+
+
+        <h3>Once the principal components have been transformed through the splice functions, the GAM structure takes
+            the following form:<br>
+            <code>s(0) + s(1) + ... + s(5)</code>, where <code>s(i)</code> is a spline applied to the i-th principal
+                component.
+            <br><br>
+            The 9 dependent (output) variables use the same set of PCA-derived features as a way to improve the
+            interpretability of the data by analyzing the forecasting values of the model and allowing the targeted
+            evaluation of how each output variable is influenced by the latent structure of the raw material and
+            process data.
+            <br><br>
+            To assess the performance of each model, scatter plots are used to compare the predicted values against the
+            actual observed values.
         </h3>
 
         <img src="bilder/project_drei4.png" alt="Project Scatter Graph 1">
 
-        <img src="bilder/project_drei5.png" alt="Project Scatter Graph 2">
-
-        <h3>The GAM model for this project adapts the following form s(0) + s(1) + ... + s(5), where all 6 main PCA
-            components are molded into smoothing splines. The GAM model is then adapted to handle all 9 dependent
-            variables that represent the Direct Iron Ore that is generated by the manufacturing process. This is done by
-            fitting a separate GAM model for each target variable using the selected principal components as input.
+        <h3>These plots include a smooth prediction curve overlaid on the scatter of true values, helping visualize
+            both model fit and residual variance. The first principal component is particularly useful for
+            visualization since it typically captures the largest source of variance in the input data, making it a
+            strong proxy for dominant process behavior.
             <br><br>
-            For this reason, are scatter plots the best option for visually comparing the actual observed values
-            (represented by the scatter points) with the predicted values generated by the GAM model (represented by
-            the line plot). This comparison helps in evaluating how well the model fits the data and captures the
-            underlying patterns.
+            After building the GAM model using PCA-transformed inputs, the next step is to repeat the modeling process
+            using Reverse Stepwise Regression. This technique helps identify the most relevant original features rather
+            than transformed ones, which links the insights of the model directly to the physical variables from the
+            raw material or DRI process data.
         </h3>
 
-        <h3><b>NOTE:</b> By comparing the values of the first Principal Component, we can capture the most significant
-            patterns or variations in the data between the main patterns in the data and the target variable.
+        <h3>Using the statsmodels library, reverse stepwise regression begins with all variables included in the model.
+            The variable with the highest p-value (indicating the least statistical significance) is removed, and the
+            model is refit. This iterative elimination continues until only the 6 most statistically significant
+            variables remain. These selected features are then used as inputs to a second GAM model, following the same
+            spline-based structure used for the PCA-derived model.
             <br><br>
-            Now that the <b>(Quality prediction)</b> model is complete, it's time to use the Reverse Stepwise Regression
-            in order to determine the main 6 variables that will later be used for the same structured GAM model made
-            for the Principal Components.
+            By comparing the performance and interpretability of both models—one based on PCA components, the other on
+            statistically-selected raw features—we can evaluate trade-offs between dimensionality reduction and
+            variable transparency. The PCA-based model may offer smoother performance and reduced noise, while the
+            stepwise model provides clearer links to specific process parameters, which is valuable for engineering
+            insights and decision-making.
+        </h3>
+
+        <img src="bilder/project_drei5.png" alt="Project Scatter Graph 2">
+
+        <h3>This logic is better represented within the two graphs that serve as the visualization of model diagnostics
+            from the Generalized Additive Model (GAM) predictions. Both graphs represent the relationship between two
+            different target variables with the same principal component. (Which is the first principal component
+            within GAM)
             <br><br>
-            This can be done with the statsmodel library, which applies regression by fitting all of the variables and
-            then measuring their respective p-values. Once the p-values have been calculated, the variable with the
-            lowest p-value is then removed and the process starts all over again.
+            The first graph displays the relationship between generated Slag (type of waste from the DR process) and
+            the first principal component. The black line represents the forecasting values of the model, which has a
+            strong negative correlation, as the first principal component increases, slag tends to decrease.
+            <br><br>
+            The second graph on the other hand displays the relationship between the DRI pellet percentage (which
+            represents the overall quality of the final pellet product) and the first principal component. But in
+            contrast to the first graph, the second graph shows how there’s no strong relationship between both
+            elements.
         </h3>
 
         <h3><b>STEP 7: Model Evaluation and Comparison</b><br><br>
-            The GCV values indicate a notable difference in predictive error, with the PCA model achieving a minimal
-            value of 0.0001, suggesting an extremely low prediction error. In contrast, the Reverse Stepwise Regression
-            model shows a GCV of 0.0, which might imply overfitting.
+            To evaluate the predictive quality and generalizability of both modeling approaches—PCA-based GAM and
+            Reverse Stepwise Regression-based GAM—a set of diagnostic metrics was used: Generalized Cross-Validation
+            (GCV), Akaike Information Criterion (AIC), and Pseudo R-squared. These metrics allows the assessment of how
+            well each model fits the data but also how well it is expected to perform on unseen inputs.
             <br><br>
-            When examining the AIC values and Pseudo R-Squared values, PCA model achieves a better balance of fit and
-            complexity by showing a significantly lower AIC and achieves a Pseudo R-Squared of 0.3382, suggesting that
-            about 33.82% of the variability in the outcome can be explained by this model. Conversely, the Reverse
-            Stepwise Regression model boasts a much higher Pseudo R-Squared of 0.8252.
+            The GCV value is a method used to estimate the prediction error of a model, particularly in situations
+            involving regularization techniques like ridge regression and is a penalized error metric that accounts for
+            model complexity between the two different models. GCV provides a way to assess a model's predictive
+            performance and optimize its parameters.
+        </h3>
+
+        <h3>The PCA-based GAM achieved a GCV of 0.0001, suggesting minimal prediction error and a smooth generalization
+            to new data. On the other hand, the Reverse Stepwise Regression model returned a GCV of 0.0, which, while
+            appearing optimal, may in fact reflect overfitting a scenario where the model fits the training data too
+            perfectly and may not generalize well.
             <br><br>
-            In conclusion, while the Reverse Stepwise Regression model excels in explanatory power as reflected by its
-            high Pseudo R-Squared value, the PCA model demonstrates better overall performance when considering the
-            balance of prediction accuracy and model simplicity, as indicated by its lower AIC.
+            This means that in order for the model to work with new data, it needs new training-test splits or
+            cross-validations to ensure that the model generalizes well and is not overly fitted to specific patterns
+            in the training set.
+            <br><br>
+            The Akaike Information Criterion (AIC) is a statistical measure used to evaluate the relative quality of
+            the two different GAMs. It balances the importance between model fit (likelihood) and  model complexity
+            (number of parameters) in order to avoid overfitting and poor performance on new data. Where lower AIC
+            values generally indicate a better-fitting and more parsimonious model.
+        </h3>
+
+        <h3>Similar to the GCV value, the AIC penalizes models with more parameters, discouraging overly complex models
+            that might overfit the data. Measuring the AIC in both models shows that the PCA model has a significantly
+            lower AIC. This supports the idea that the PCA-based model achieves strong predictive capabilities while
+            avoiding unnecessary complexity, despite the abstract creation of principal components.
+            <br><br>
+            In this project, one of the key metrics used to assess model performance is R-squared (R²), also known as
+            the coefficient of determination. R² measures how well a model explains the variability of the target
+            variable based on the inputs. For instance, an R² of 0.82 indicates that 82% of the variation in a DRI
+            quality metric (like slag content or pellet size) is accounted for by the model’s predictors.
+            <br><br>
+            When applied to Generalized Additive Models (GAMs), we refer to this metric as Pseudo R-squared because
+            GAMs use smoothing splines and penalized likelihood estimation, which differ from traditional linear
+            regression. In this context, Pseudo R² is calculated as the proportion of deviance reduced by the model,
+            offering a similar interpretation: the higher the value, the better the model fits the data.
+        </h3>
+
+        <h3>The PCA-based GAM model achieved a Pseudo R² of 0.3382, indicating that about 33.82% of the variability in
+            the outcome could be explained using just the top six principal components. While this may seem moderate,
+            it reflects a model that balances generalization and robustness. In contrast, the Reverse Stepwise
+            Regression model reached a much higher Pseudo R² of 0.8252, showing strong explanatory power but also
+            suggesting a greater risk of overfitting—especially when paired with an unusually low GCV value.
+            <br><br>
+            This deviation raises an important trade-off. While the reverse stepwise model has stronger explanatory
+            power, it may do so at the expense of generalizability, as suggested by the GCV. The PCA model appears to
+            achieve a better balance between predictive performance and model stability by reducing noise and
+            redundancy through dimension reduction.
         </h3>
 
         <h3><b>STEP 8: Model Refinement</b><br><br>
-            By comparing the result of the GAM models that use PCA with the models that use only the statistically
-            relevant variables obtained from the Reverse Stepwise Reduction technique, we can see that even though both
-            are mathematical techniques specialized for dimension reduction, there is considerably more value lost in
-            one technique than the other.
+            By evaluating both GAMs. One used PCA components. The other used statistically selected features from
+            Reverse Stepwise Regression. It became clear that both approaches serve as dimensionality reduction tools.
+            However, they differ significantly in terms of information retention, model complexity, and
+            interpretability.
             <br><br>
-            Some aspects that we have to value from the PCA models are their inherent ability to enhance the performance
-            of the GAM models in a way where there is no value lost that would otherwise be discarded from the reverse
-            stepwise regression technique.
-            <br><br>
-            At the end of the day, even though one model offers a better fit than the other, we should always consider
-            the computational costs that arise when handling with large quantities of features (which is extremely
-            common in a manufacturing process).
+            A major strength of the PCA-based model is its ability to preserve nearly all of the original variance
+            (e.g., 92.39% is captured by six components) without overfitting. This enables the generalized additive
+            model (GAM) to generalize well, reducing noise and multicollinearity while maintaining predictive strength.
+            This is particularly valuable when dealing with high-dimensional data, as is common in industrial sensor
+            networks and chemical process monitoring.
         </h3>
 
-        <h3><b>Conclusion:</b><br>
-            The use of GAM models in manufacturing processes like Direct Reduction could bring plenty of value in the
-            reduction of waste (Quality Control) and the forecasting of end results (Quality Prediction), thanks to the
-            insights obtained from the analysis of PRINCIPAL COMPONENTS and/or STATISTICALLY RELEVANT variables.
+        <h3>However, PCA transforms the variables into latent components, which can make direct interpretation
+            challenging. Unlike raw features, such as reagent flow or pressure levels, principal components do not
+            correspond to single physical quantities. This lack of interpretability can limit its usefulness in process
+            diagnostics and corrective actions, where domain experts often need to know the exact variable to adjust.
             <br><br>
-            This insight facilitates root cause analysis and enables targeted interventions to improve the performance
-            of the process and the quality of it's final product. All thanks to the examination of the estimated
-            coefficients and smooth functions in the GAM model, manufacturers can pinpoint which variables have the
-            most significant impact on product quality and how they interact with one another.
+            In addition to comparing methods, model refinement should consider scalability and deployment potential. In
+            real-time manufacturing systems, models must be efficient and robust enough to withstand sensor noise and
+            adapt to process drift. In this context, principal component analysis (PCA)-based models offer a favorable
+            balance by simplifying the feature space, improving runtime performance, and offering resilience to
+            fluctuations in individual sensor readings.
+            <br><br>
+            Several refinement strategies can be introduced to further improve model performance, reliability, and
+            usability in real-world manufacturing settings. For instance, the current model uses default lambda values.
+            Tuning lambda for each variable, either manually or through automated cross-validation, could improve the
+            final model. This process adjusts the flexibility of each spline to find the optimal balance between
+            capturing important trends and avoiding noise.
+        </h3>
+
+        <h3>Another important area for future improvement is the integration of residual analysis techniques into the
+            model evaluation and refinement workflow. By systematically analyzing residual patterns, it becomes
+            possible to identify whether certain relationships have been missed, whether non-linear effects are
+            insufficiently captured, or whether the model consistently over- or under-predicts under specific process
+            conditions.
+            <br><br>
+            Incorporating these techniques not only improves predictive accuracy but also strengthens the model’s
+            reliability and transparency, making it easier to deploy in real-world production environments. In
+            industrial applications, where decisions based on model outputs can affect cost, safety, and product
+            quality, consistency and interpretability are just as critical as performance.
+            <br><br>
+            For this reason, model refinement is an essential step in any machine learning or statistical modeling
+            project. It provides a structured way to enhance results through technical adjustments—such as
+            hyperparameter tuning, diagnostic analysis, or regularization—without discarding the overall structure or
+            objective of the model. These refinements can often lead to substantial improvements in performance and
+            usability, making the model more resilient, efficient, and aligned with operational needs. In the context
+            of manufacturing, this translates directly into better process control, reduced waste, and more consistent
+            product quality.
+        </h3>
+
+        <h3><b>CONCLUSION:</b><br>
+            This project demonstrates the potential of combining <b>Generalized Additive Models (GAM)</b> with
+            dimensionality reduction techniques such as <b>Principal Component Analysis</b> and
+            <b>Reverse Stepwise Regression</b> for improving quality control and waste prediction in the context of
+            <b>Direct Reduced Iron (DRI)</b> production.
+            <br><br>
+            The GAM framework excels in its ability to capture non-linear relationships between inputs and outputs
+            through smooth spline functions. This is particularly important in industrial environments, where many
+            variables interact in non-obvious ways. PCA supports this modeling approach by transforming a
+            high-dimensional feature space into a compact and noise-resistant set of components, helping improve
+            generalization and reduce computational complexity. Meanwhile, Reverse Stepwise Regression ensures that
+            interpretability is preserved by identifying the most statistically significant raw process
+            variables—allowing for direct links between model behavior and engineering knowledge.
+        </h3>
+
+        <h3>These models not only enable accurate forecasting of key quality indicators (e.g., slag content, porosity,
+            metallization) but also support root cause analysis by revealing which process conditions most strongly
+            influence final product quality. The examination of <b>smooth spline functions</b> and
+            <b>coefficient summaries</b> allows engineers to pinpoint influential parameters and understand how they
+            interact—providing actionable insights for improving both efficiency and sustainability.
+            <br><br>
+            Furthermore, this project establishes a blueprint for data-informed decision-making in manufacturing
+            environments. It demonstrates how predictive modeling can go beyond monitoring to support early warnings,
+            optimize resource usage, and reduce waste generation. The interpretability and flexibility of GAMs make
+            them particularly suitable for implementation in real-time control systems, where both transparency and
+            adaptability are required.
+            <br><br>
+            In conclusion, the integration of data-driven models like GAM into industrial systems can transform
+            traditional process monitoring into a proactive and predictive framework, reducing waste, improving output
+            quality, and supporting data-informed decision-making at scale. This framework is especially powerful in
+            data-rich environments, where complex process dynamics can no longer be fully managed through manual
+            control and static rules alone.
         </h3>
     </div>
 </section>
-
 
   <footer>
     <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>
