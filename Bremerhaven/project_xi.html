@@ -22,89 +22,209 @@
     </nav>
   </header>
 
-    <section id="homepage">
-        <h1>Erstellen eines Streamlit-Dashboard</h1>
-        <h2>Verwendung von Streamlit zur Umwandlung von Rohdaten aus CSV-Dateien in eine interaktive
-            Dashboard-Webanwendung sowie Bereitstellung einer serverlosen Benutzeroberfläche, die mit Python-Code
-            betrieben wird.
-        </h2>
+<section id="homepage">
+    <h1>Erstellen eines Streamlit-Dashboard</h1>
+    <h2>Verwendung von Streamlit zur Umwandlung von Rohdaten aus CSV-Dateien in eine interaktive Dashboard-Webanwendung
+        sowie Bereitstellung einer serverlosen Benutzeroberfläche, die mit Python-Code betrieben wird.
+    </h2>
 
-        <div class="project-container">
-            <h3>Dieses Projekt präsentiert ein modulares Streamlit-Dashboard, das dazu dient, rohe CSV-Daten in eine
-                vollständig interaktive Analyseoberfläche umzuwandeln. Benutzer können ihre eigenen Datensätze
-                hochladen und Daten mithilfe visueller Tools wie Balkendiagrammen, Kreisdiagrammen, Boxplots,
-                Histogrammen und Zeitreihenprognosen auf Basis von ARIMA-Modellen untersuchen.
-                <br><br>
-                Das Dashboard ist in separate Registerkarten für die Analyse kategorialer, numerischer und
-                Zeitreihendaten unterteilt und enthält eingebettete Erläuterungen zur Unterstützung der
-                Dateninterpretation.
-                <br><br>Laden Sie die folgende CSV-Datei herunter, um das interaktive Dashboard auszuprobieren:<br><br>
-                <button class="btn">
-                    <a href="https://storage.googleapis.com/www.portfoliowork.de/databases/test_csv.csv" download>
-                        🐸 Herunterladen der Datei 🐸</a>
-                </button>
-            </h3>
+    <div class="project-container">
+        <h3>Dashboards spielen eine entscheidende Rolle bei der Datenanalyse, da sie eine visuelle und interaktive
+            Möglichkeit bieten, Daten darzustellen, zu analysieren und zu verwalten. Sie ermöglichen es Fachleuten,
+            umsetzbare Erkenntnisse zu gewinnen, Trends zu überwachen und fundierte Entscheidungen zu treffen.
+            Dashboards können Datenvisualisierungen, statistische Analysen, Ergebnisse von Machine-Learning-Modellen
+            und vieles mehr anzeigen. Damit sind sie ein äußerst nützliches Werkzeug für jeden Programmierer, um
+            Neulinge in die Datenanalyse einzuführen.
+            <br><br>
+            Letztendlich sind Dashboards Tools, die dabei helfen, Ergebnisse aus der explorativen Datenanalyse zu
+            präsentieren und Modellleistungsmetriken zu veranschaulichen. So können auch Nutzer ohne
+            Programmiererfahrung Vorhersagen und Empfehlungen aus maschinellen Lernmodellen einsehen und historische
+            Trends und Muster über ein benutzerfreundliches Dashboard visualisieren.
+            <br><br>Download einer CSV-Beispieldatei zum Testen der Streamlit-Dashboard-Funktionen:<br>
+            <button class="btn">
+                <a href="https://storage.googleapis.com/www.portfoliowork.de/databases/test_csv.csv" download>
+                    🐸 Download die CSV Datei 🐸</a>
+            </button>
+        </h3>
 
-            <h3>Um die Interaktivität und Benutzerkontrolle zu verbessern, enthält das Dashboard Filtertools,
-                zusammenfassende Statistiken und Schaltflächen zur dynamischen Generierung von Visualisierungen
-                und Modellausgaben. Es wurde entwickelt, um sowohl technische als auch nicht-technische Benutzer
-                durch zentrale Konzepte der Datenwissenschaft wie Verteilungsanalyse, Schiefe, Variabilität und
-                Prognosen zu führen.
-                <br><br>
-                Zu den wichtigsten Verbesserungen am Code gehören robustere Prognosen mit auto_arima zur Vermeidung
-                von Vorhersagen mit konstanten Werten sowie erweiterte statistische Diagnosen wie
-                Augmented Dickey-Fuller (ADF)-Stationaritätstests und Konfidenzintervalle. Außerdem wurde eine neue
-                Histogrammvisualisierung hinzugefügt, um numerische Verteilungen neben dem Boxplot besser darzustellen.
-            </h3>
+        <h3>Das Ziel dieses Projekts ist es, zu zeigen, wie Rohdatensätze (in der Regel in Form von CSV-Dateien) mit
+            <b>Streamlit</b> in interaktive und aufschlussreiche visuelle Analysetools umgewandelt werden können.
+            Dieses Dashboard wurde entwickelt, um wichtige Aspekte der explorativen Datenanalyse (EDA), der Prognose
+            und der statistischen Modellierung auf eine Weise zu veranschaulichen, die sowohl für technische als auch
+            für nicht-technische Benutzer zugänglich ist.
+            <br><br>
+            Durch die Bereitstellung einer browserbasierten Oberfläche ohne Programmieraufwand schließt das Projekt die
+            Lücke zwischen Backend-Analysen und Frontend-Interpretation und ist damit eine ideale Lösung für Analysten,
+            Forscher und Entscheidungsträger, die Business Intelligence praktizieren, indem sie Geschäftsdaten
+            analysieren und in umsetzbare Erkenntnisse für strategische und taktische Entscheidungen umwandeln.
+            <br><br>
+            Business Intelligence und Datenanalyse sind unerlässlich, um aus Daten aussagekräftige Erkenntnisse zu
+            gewinnen. Interaktive Dashboards helfen dabei, die Lücke zwischen den theoretischen und abstrakten Methoden
+            der Datenanalyse und einem visuellen Medium zu schließen, das zu konkreten, datenbasierten Entscheidungen
+            führen kann.
+        </h3>
 
-            <h3>Zu den geplanten zukünftigen Verbesserungen gehören die Möglichkeit, Ergebnisse (Tabellen und
-                Diagramme) herunterzuladen, Modellparameter interaktiv auszuwählen und Prognosemodelle mithilfe von
-                Fehlermetriken wie MAE und RMSE nebeneinander zu vergleichen. Zusätzliche pädagogische Elemente wie
-                Code-Erklärungen und erweiterbare Logikabschnitte erhöhen den Wert dieses Dashboards für Lernzwecke
-                weiter.
-                <br><br>Sehen Sie, wie Dashboards eine Excel-Datei in ein interaktives Dashboard verwandeln können:<br><br>
-                <button class="btn">
+        <h3>Streamlit ist eine beliebte Python-Bibliothek, die speziell für die Datenvisualisierung entwickelt wurde.
+            Elemente wie Diagramme, Grafiken, Heatmaps und Karten helfen dabei, Datenmuster und Trends effektiver zu
+            vermitteln als reine Zahlen. Mit Hilfe von Streamlit können diese Elemente um interaktive Elemente
+            erweitert werden, die allen Visualisierungstools einen zusätzlichen Mehrwert verleihen.
+            <br><br>
+            Durch Klicken auf die folgende Schaltfläche wird das Streamlit-Dashboard geöffnet und zeigt Filtertools,
+            zusammenfassende Statistiken, Datenvisualisierungen und Modellausgaben mit vollständiger Benutzerkontrolle
+            an. Der Hauptzweck besteht darin, sowohl technische als auch nicht-technische Benutzer durch zentrale
+            Konzepte der Datenwissenschaft wie Verteilungsanalyse, Schiefe, Variabilität und Prognosen zu führen.
+            <br><br>
+            <button class="btn">
                 <a href="https://projectxpy-jmbkwmga69tt2qjhgzbvdy.streamlit.app/" class="btn">
-                    🐸 Besuchen das Streamlit-Dashboard 🐸</a>
-                </button>
-            </h3>
+                    🐸 Die Streamlit-Dashboard besuchen 🐸</a>
+            </button>
+        </h3>
 
-            <img src="bilder/project_xi1.png" alt="Streamlit Frontpage">
+        <img src="bilder/project_xi1.png" alt="Streamlit Frontpage">
 
-            <h3>Während diese App aufgrund ihrer Einfachheit und ihrer schnellen Prototyping-Fähigkeiten in Streamlit
-                erstellt wurde, wird auf der Seite auf Dash (Plotly) als flexiblere Alternative für produktionsreife
-                Anwendungen hingewiesen. Dash ermöglicht eine tiefere Anpassung des Layouts und der
-                Benutzerinteraktivität, erfordert jedoch eine komplexere Einrichtung und Callback-Logik. Streamlit
-                bleibt ideal für die Bereitstellung von leichtgewichtigen, datengesteuerten Dashboards mit minimalem
-                Aufwand.
-                <br><br>
-                Dieses Projekt zeigt, wie statistische Modellierung, Prognosen und explorative Analysen nahtlos in
-                einen einzigen visuellen Workflow integriert werden können – und damit die Lücke zwischen abstrakten
-                datenwissenschaftlichen Techniken und realen Business-Intelligence-Tools schließen.
-            </h3>
+        <h3>Mit Streamlit, einer einfachen, datengesteuerten Webanwendung für Data-Science-Projekte, können Benutzer
+            Datenrahmen bearbeiten, Metriken plotten, Analysetests durchführen und Python-Funktionen bereitstellen,
+            ohne einen Python-Interpreter installieren zu müssen.
+            <br><br>
+            Diese Streamlit-Anwendung umfasst eine Reihe dynamischer Funktionen, mit denen Benutzer ihre eigenen
+            Datensätze hochladen und wichtige Erkenntnisse gewinnen können. Die App erkennt automatisch Datentypen,
+            übernimmt die Datenbereinigung (z. B. numerische Konvertierung) und bietet mehrere Registerkarten zur
+            Analyse kategorialer, numerischer und zeitreihender Daten sowie Visualisierungen und ARIMA-basierte
+            Prognosen.
+        </h3>
 
-            <img src="bilder/project_xi2.png" alt="Categorical Example">
+        <img src="bilder/project_xi2.png" alt="Data Summaries">
 
-            <h3>Streamlit-Dashboards bieten eine intuitive und effiziente Möglichkeit, analytische Modelle in
-                interaktive Tools umzuwandeln, die die Entscheidungsfindung in der Praxis unterstützen. In
-                Unternehmens- und Verwaltungsumgebungen sind diese Dashboards besonders wertvoll für Fachleute, die
-                in den Bereichen Datenprognose, Logistik, Energiemodellierung und Personalplanung tätig sind –
-                Bereiche, die mit meinem Hintergrund und meinen angewandten Projekten übereinstimmen.
-                <br><br>
-                Durch die Umwandlung von Rohdatensätzen oder statistischen Ergebnissen in interaktive Diagramme,
-                Zusammenfassungen und Vorhersagemodelle ermöglicht Streamlit die Kommunikation technischer Ergebnisse
-                an nicht-technische Stakeholder. Dies ist besonders nützlich für Aufgaben wie Personalplanung,
-                Energiebedarfsprognosen und die Optimierung von Betriebsressourcen, bei denen Erkenntnisse schnell
-                verstanden und umgesetzt werden müssen. Streamlit ermöglicht es Datenwissenschaftlern und Analysten,
-                webbasierte Schnittstellen zu entwickeln, die die Lücke zwischen analytischer Komplexität und
-                geschäftlicher Klarheit schließen.
-            </h3>
+        <h3><b>KATEGORIALE ANALYSE</b><br>
+            Das Dashboard enthält maßgeschneiderte Tools für die Arbeit mit verschiedenen Datentypen. Kategoriale
+            Variablen werden mithilfe von Balken- und Kreisdiagrammen analysiert, um Häufigkeitsverteilungen und
+            Ungleichgewichte zwischen Gruppen hervorzuheben. Dabei werden Daten analysiert und zusammengefasst, die in
+            verschiedene Kategorien oder Gruppen fallen.
+            <br><br>
+            Eine Häufigkeitsverteilung ist bei der Arbeit mit kategorialen Daten sehr nützlich, da sie eine klare und
+            übersichtliche Zusammenfassung der Verteilung der verschiedenen Kategorien oder Werte innerhalb einer
+            kategorialen Variablen in einem Datensatz liefert. Balkendiagramme bieten eine übersichtliche Darstellung
+            der Häufigkeitsverteilung von Kategorien und eignen sich daher ideal zur Identifizierung dominanter
+            Gruppen, seltener Ereignisse und Ungleichgewichte in den Daten.
+            <br><br>
+            Diese Diagramme unterstützen die vergleichende Analyse zwischen Gruppen und sind besonders nützlich bei der
+            Interpretation nominaler oder ordinaler Variablen. Im Gegensatz dazu betonen Kreisdiagramme die relativen
+            Anteile jeder Kategorie und bieten eine intuitivere Darstellung, wenn es darum geht, zu vermitteln, wie
+            viel jede Gruppe zum Ganzen beiträgt.
+        </h3>
 
-            <img src="bilder/project_xi3.png" alt="Numerical Example">
+        <h3>Zusammen helfen diese Visualisierungen den Benutzern, die Struktur, Ausgewogenheit und potenzielle
+            Verzerrung kategorialer Merkmale zu beurteilen, was bei der Vorbereitung von Daten für die Modellierung
+            oder Interpretation von entscheidender Bedeutung ist. Wenn nicht alle Kategorien einer kategorialen
+            Variablen gleich stark vertreten sind, kann dies mehrere negative Auswirkungen auf die Datenanalyse und
+            -interpretation haben.
+            <br><br>
+            Das liegt daran, dass eine Dominanz einer Kategorie in der Verteilung zu einer verzerrten Wahrnehmung der
+            gesamten Datenmuster führt, was wiederum zu einer verzerrten Analyse und einer falschen statistischen
+            Signifikanz führt, was sich wiederum auf die Modellleistung auswirkt.
+            <br><br>
+            Viele statistische Methoden gehen davon aus, dass Daten normalverteilt sind. Bei verzerrten Daten können
+            Transformationen erforderlich sein, um diese Annahmen zu erfüllen und die Gültigkeit von Tests wie ANOVA,
+            t-Tests und Korrelationsanalysen sicherzustellen.
+        </h3>
 
-            <img src="bilder/project_xi4.png" alt="Time series Example">
-        </div>
-    </section>
+        <img src="bilder/project_xi5.png" alt="Categorical analysis">
+
+
+        <h3><b>NUMERISCHE ANALYSE</b><br><br>
+            Numerische Merkmale werden mithilfe deskriptiver Statistiken – Mittelwert, Median, Varianz, Schiefe und
+            mehr – sowie visueller Tools wie Boxplots und Histogrammen zusammengefasst, die dabei helfen, Ausreißer und
+            Verteilungsmuster zu identifizieren. Boxplots bieten eine kompakte Zusammenfassung der Verteilungsmerkmale
+            – wie Median, Streuung, Schiefe und Ausreißer –, sodass Benutzer Anomalien erkennen und Abweichungen auf
+            einen Blick beurteilen können. Histogramme ergänzen Boxplots, indem sie die Häufigkeit von Werten über
+            definierte Intervalle (Bins) veranschaulichen und Benutzern helfen, die Form, Modalität und Schiefe der
+            Verteilung zu verstehen.
+            <br><br>
+            Die Boxplot-Funktion ist ein wichtiges Werkzeug in der statistischen Datenanalyse. Sie fasst die Verteilung
+            einer numerischen Variablen anhand wichtiger Quantile (Minimum, Q1, Median, Q3, Maximum) zusammen und hebt
+            potenzielle Ausreißer hervor. Boxplots sind entscheidend für die schnelle Beurteilung der Symmetrie,
+            Schiefe und Streuung von Daten sowie für die Identifizierung von Extremwerten, die sich auf nachgelagerte
+            Modelle oder Analysen auswirken könnten.
+        </h3>
+
+        <h3>Diese Diagramme unterstützen die vergleichende Analyse zwischen Gruppen und sind besonders nützlich bei der
+            Interpretation nominaler oder ordinaler Variablen. Im Gegensatz dazu betonen Kreisdiagramme die relativen
+            Anteile jeder Kategorie und bieten eine intuitivere Darstellung, wenn es darum geht, den Beitrag jeder
+            Gruppe zum Ganzen zu vermitteln.
+            <br><br>
+            Die numerische Datenanalyse konzentriert sich auf die Zusammenfassung von Eigenschaften wie Zentral
+            tendency (Mittelwert, Median, Modus), Streuung (Standardabweichung, Varianz) und Form (Schiefe, Kurtosis).
+            Zusammenfassende Statistiken bieten einen kompakten, informativen Überblick über die Eigenschaften eines
+            Datensatzes.
+        </h3>
+
+        <img src="bilder/project_xi3.png" alt="Numerical analysis">
+
+        <h3><b>ZEITREIHENMODELLIERUNG</b><br><br>
+            Schließlich kombiniert das Zeitreihendiagramm die Datenvisualisierung mit Prognosen, indem es ein
+            SARIMA-Modell verwendet, um Trends zu identifizieren und zukünftige Werte vorherzusagen, wobei
+            Unsicherheiten durch Konfidenzintervalle berücksichtigt werden. Diese Diagramme bieten ein umfassendes
+            Toolkit für die Analyse numerischer Variablen, die Validierung von Annahmen und die Generierung
+            vorausschauender Erkenntnisse.
+            <br><br>
+            Die Zeitreihenanalyse umfasst die Untersuchung historischer Datenpunkte über Zeitintervalle hinweg, wobei
+            saisonale Schwankungen, Trends und Fluktuationen innerhalb der Daten betrachtet werden, die später mit
+            Hilfe von Techniken wie SARIMA-Modellen untersucht werden können.
+        </h3>
+
+        <img src="bilder/project_xi4.png" alt="Time series Example">
+
+        <h3>Mit der Zeitreihendiagrammfunktion können Benutzer visualisieren, wie sich eine numerische Variable im
+            Laufe der Zeit entwickelt, und diese Analyse mithilfe der SARIMA-Modellierung (Saisonalität Autoregressive
+            Integrated Moving Average) auf die Zukunft ausweiten. Die Zeitreihenanalyse ist unerlässlich, um zeitliche
+            Trends, Saisonalität, zyklisches Verhalten und Musteränderungen aufzudecken.
+            <br><br>
+            Für dieses interaktive Dashboard verwenden wir ein SARIMA-Modell, das für Seasonal (S), Autoregressive
+            (AR), Integrated (I) und Moving Average (MA) steht und sich besonders gut für die Erfassung komplexer
+            Muster, Trends und Saisonalität in Zeitreihendaten eignet. (Das Modell enthält feste s-, p-, d- und
+            q-Werte.)
+        </h3>
+
+        <h3>Jede Komponente des Dashboards spiegelt ein grundlegendes Konzept der Datenwissenschaft und Statistik
+            wider. Die Frequenzanalyse unterstützt Klassifizierungs- und kategoriale Kodierungsentscheidungen,
+            zusammenfassende Statistiken untermauern Modellierungsannahmen und Feature Engineering, und die
+            Zeitreihenmodellierung ermöglicht Vorhersagen, Anomalieerkennung und operative Planung.
+            <br><br>
+            In realen Szenarien könnten Dashboards wie dieses Energieprognosen, Finanzanalysen, die Verfolgung der
+            Nachfrage im Einzelhandel oder administrative Entscheidungen unterstützen – überall dort, wo eine schnelle,
+            visuelle Interpretation strukturierter Daten erforderlich ist.
+        </h3>
+
+        <h3><b>STREAMLIT</b><br>
+            Streamlit wurde mit Blick auf Einfachheit und Geschwindigkeit entwickelt. Seine Syntax ist intuitiv und
+            spiegelt die Struktur eines Python-Skripts wider, sodass Datenwissenschaftler und Analysten innerhalb
+            weniger Minuten von der Idee zur App gelangen. Streamlit rendert Widgets, Diagramme und Textausgaben
+            automatisch, während Sie Ihr Skript schreiben, ohne dass Sie über Kenntnisse in HTML, CSS oder
+            Frontend-Logik verfügen müssen.
+            <br><br>
+            Dies macht es ideal für Rapid Prototyping, interne Tools oder Lehrumgebungen, in denen Zugänglichkeit und
+            Interaktivität im Vordergrund stehen. Durch die nahtlose Integration mit Data-Science-Bibliotheken wie
+            Pandas, Seaborn und Statsmodels liegt der Schwerpunkt eher auf der Analyse als auf dem Interface-Design.
+        </h3>
+
+        <h3><b>DASH</b><br>
+            Dash hingegen bietet eine fortschrittlichere, produktionsreife Umgebung und ermöglicht hochgradig
+            angepasste Layouts, mehrseitige Anwendungen und eine detailliertere Steuerung des Komponentenverhaltens
+            über Callbacks und Frontend-Routing.
+            <br><br>
+            Durch diese zusätzliche Kontrolle eignet sich Dash für Situationen, in denen Anwendungen öffentlich
+            bereitgestellt, in Unternehmensplattformen integriert oder für die Benutzererfahrung über mehrere Rollen
+            oder Geräte hinweg optimiert werden müssen. Diese Flexibilität geht jedoch mit einer gewissen Komplexität
+            einher, da Dash ein tieferes Verständnis der UI-Logik und Anwendungsstruktur erfordert, was oft mehr
+            Entwicklungszeit in Anspruch nimmt.
+            <br><br>
+            Letztendlich ermöglichen beide Tools Datenfachleuten die Erstellung leistungsstarker, browserbasierter
+            Tools, die ausschließlich Python verwenden. Die Wahl zwischen Streamlit und Dash hängt jedoch davon ab, ob
+            die Dashboard Geschwindigkeit und Einfachheit oder Kontrolle und Anpassungsmöglichkeiten priorisieren.
+        </h3>
+
+    </div>
+</section>
 
   <footer>
     <p>Erstellt von Adrián Ochoa Ferriño - 2023</p>

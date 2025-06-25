@@ -7,8 +7,8 @@ nav {
     top: 0;
     width: 100%;
     justify-content: space-between;
-    padding: 20px;
-    overflow: hidden;
+    padding: 15px;
+    overflow-x: auto;
     position: fixed;
     white-space: nowrap;
     font-weight: bold;
@@ -29,7 +29,10 @@ nav a {
     color: #E1E6E1;
     text-decoration: none;
     text-align: center;
-    padding: 20px 10px;
+    padding: 15px 5px;
+    font-size: clamp(12px, 1.5vw, 24px);
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 nav a:hover {
@@ -165,9 +168,10 @@ footer {
     justify-content: center;
     align-items: center;
     height: 50px;
-    width: 100%;
+    width: 100vw;
+    position: relative;
+    left: 0;
 }
-
 
 footer p {
     margin: 0;
