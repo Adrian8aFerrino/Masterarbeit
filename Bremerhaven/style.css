@@ -168,10 +168,9 @@ footer {
     justify-content: center;
     align-items: center;
     height: 50px;
-    width: 100vw;
-    position: relative;
-    left: 0;
+    width: 100%;
 }
+
 
 footer p {
     margin: 0;
